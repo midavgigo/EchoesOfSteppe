@@ -2,5 +2,5 @@
 
 [ext_resource type="Texture2D" uid="uid://bl0c5oknbuikx" path="res://Sprites/icon.svg" id="1_iypgv"]
 
-[node name="Sprite2D" type="Sprite2D"]
+[node name="Sprite2D" type="Sprite2D" groups=["platform"]]
 texture = ExtResource("1_iypgv")
