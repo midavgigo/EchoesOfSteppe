@@ -1,10 +1,10 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1722277309
+::res://::1722356839
 ::res://Scenes/::1722277308
-::res://Scenes/Main/::1722277315
-Main.tscn::PackedScene::2103422181100190984::1722277317::0::1::::<><>::res://Scenes/Main/node2d.gd<>uid://dg8mkt5ggmeun::::res://Sprites/animation/1.png<>uid://cr6542uaxcg3n::::res://Sprites/animation/2.png<>uid://bk6f183uw7byb::::res://Sprites/animation/3.png<>uid://bfs5p7i1ea03t::::res://Sprites/animation/4.png<>uid://dmpqrrxsvdpjy::::res://Sprites/animation/5.png<>uid://bf2fhoccclku1::::res://Sprites/animation/6.png<>uid://dnphvgcqi64f::::res://Sprites/animation/7.png<>uid://1egbbebfooxb::::res://Sprites/animation/8.png
-node2d.gd::GDScript::-1::1722277295::0::1::::<>Node2D<>::
-::res://Scenes/Main/Scripts/::1722277315
+::res://Scenes/Main/::1722277709
+Main.tscn::PackedScene::2103422181100190984::1722277709::0::1::::<><>::res://Scenes/Main/Scripts/node2d.gd<>uid://dg8mkt5ggmeun::::res://Sprites/animation/1.png<>uid://cr6542uaxcg3n::::res://Sprites/animation/2.png<>uid://bk6f183uw7byb::::res://Sprites/animation/3.png<>uid://bfs5p7i1ea03t::::res://Sprites/animation/4.png<>uid://dmpqrrxsvdpjy::::res://Sprites/animation/5.png<>uid://bf2fhoccclku1::::res://Sprites/animation/6.png<>uid://dnphvgcqi64f::::res://Sprites/animation/7.png<>uid://1egbbebfooxb::::res://Sprites/animation/8.png
+::res://Scenes/Main/Scripts/::1722277583
+node2d.gd::GDScript::-1::1722277583::0::1::::<>Node2D<>::
 ::res://Sprites/::1722277146
 icon.svg::CompressedTexture2D::2092159345667564296::1722276918::1722276951::1::::<><>::
 ::res://Sprites/animation/::1722277146
