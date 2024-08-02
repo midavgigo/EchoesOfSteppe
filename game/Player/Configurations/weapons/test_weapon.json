@@ -1,8 +1,8 @@
-Weapon{
-	type: {
-		material: "ferum",
-		type: "sword"
+{
+	"type": {
+		"material": "ferum",
+		"type": "sword"
 	},
-	speed: 1, // Коэфициент изменения скорости атаки относительно скорости удара персонажа
-	damage: 0.5
+	"speed": 1, 
+	"damage": 0.5
 }

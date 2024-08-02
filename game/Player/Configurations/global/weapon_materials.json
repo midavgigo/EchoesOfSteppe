@@ -1,6 +1,6 @@
-materials{
-	ferum:{
-		alive: 1,
-		spirit: 1
+{
+	"ferum":{
+		"alive": 1,
+		"spirit": 1
 	}
 }

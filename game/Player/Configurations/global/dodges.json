@@ -1,6 +1,6 @@
-dodges{
-	rolling:{
-		speed: 8,
-		attack_resist: 1	
+{
+	"rolling":{
+		"speed": 8,
+		"attack_resist": 1	
 	}
 }
