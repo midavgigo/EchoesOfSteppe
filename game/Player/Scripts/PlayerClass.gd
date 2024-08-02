@@ -20,10 +20,10 @@ class Player:
 		run = flag
 	
 	func set_joy(hor, ver):
-		acceleration.x = hor * data["run"]["accel"]
-		acceleration.y = ver * data["run"]["accel"]
+		acceleration.x = hor * (data["walk"]["accel"]+data["run"]["accel"])
+		acceleration.y = ver * (data["walk"]["accel"]+data["run"]["accel"])
 		if run:
-			acceleration = acceleration.limit_length(data["run"]["accel"])
+			acceleration = acceleration.limit_length(data["walk"]["accel"]+data["run"]["accel"])
 		else:
 			acceleration = acceleration.limit_length(data["walk"]["accel"])
 	
@@ -32,7 +32,7 @@ class Player:
 			acceleration = -velocity
 		velocity += acceleration*delta
 		if run:
-			velocity = velocity.limit_length(data["run"]["speed"])
+			velocity = velocity.limit_length(data["walk"]["speed"]+data["run"]["speed"])
 		else:
 			velocity = velocity.limit_length(data["walk"]["speed"])
 			
