@@ -2,12 +2,8 @@
 	"health": 1.0, 
 	"stamina": 1.0, 
 	"walk": {
-		"speed": 100, 
-		"accel": 100 
-	},
-	"run": {
-		"speed": 50, 
-		"accel": 50,
+		"speed": 150, 
+		"accel": 562.5
 	},
 	"attack": {
 		"force": 1.0, 

@@ -10,3 +10,4 @@ res://Test/Scenes/Test.tscn
 res://Player/Scenes/Equipment.tscn
 res://Player/Scenes/Weapon.tscn
 res://Player/Scenes/Player.gd
+res://Player/Scripts/Player.gd

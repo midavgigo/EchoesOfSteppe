@@ -5,8 +5,7 @@ var player
 
 enum AnimationStatus{
 	STAND,
-	WALK,
-	RUN
+	WALK
 }
 
 var animation_status = AnimationStatus.STAND
@@ -18,10 +17,7 @@ func analyze_anim():
 	if velocity.length() < 30:
 		temp = AnimationStatus.STAND
 	else:
-		if player.is_run():
-			temp = AnimationStatus.RUN
-		else:
-			temp = AnimationStatus.WALK
+		temp = AnimationStatus.WALK
 	if temp != animation_status:
 		animation.stop()
 		match temp:
@@ -29,18 +25,15 @@ func analyze_anim():
 				animation.play("Stand")
 			AnimationStatus.WALK:
 				animation.play("Walk")
-			AnimationStatus.RUN:
-				animation.play("Run")
 	animation_status = temp
 
 func _process(delta):
-	player.set_run(false)
-	if Input.is_action_pressed("run"):
-		player.set_run(true)
 	player.set_joy(
 		Input.get_action_strength("player_right")-Input.get_action_strength("player_left"), 
 		Input.get_action_strength("player_down")-Input.get_action_strength("player_up")
 	)
+	if Input.is_action_pressed("ui_accept"):
+		player.set_joy(1, 0)
 	analyze_anim()
 	player.calc(delta*10)
 	velocity = player.get_velocity()
