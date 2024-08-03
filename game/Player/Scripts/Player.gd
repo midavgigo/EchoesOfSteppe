@@ -60,6 +60,15 @@ func player_process(delta):
 	velocity = player.get_velocity()
 	move_and_slide()
 
+func hit(damage, type):
+	match type:
+		"weapon":
+			player.health -= damage*equipment.weapon
+		"beast":
+			player.health -= damage*equipment.beast
+		"spirit":
+			player.health -= damage*equipment.spirit
+
 func _process(delta):
 	analyze_anim()
 	debug_label.text = ""

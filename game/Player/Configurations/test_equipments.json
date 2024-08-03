@@ -2,7 +2,7 @@
 	"test_equipment":{
 		"slots": 4,
 		"weapon": 0.5,
-		"beast": 0.9,
-		"spirit": 0
+		"beast": 0.1,
+		"spirit": 0.9
 	}
 }
