@@ -3,6 +3,8 @@ var player
 @onready var debug_label = $DebugMessage
 @onready var animation = $Animation
 
+var PLAYER_NAME = "test_player"
+
 enum AnimationStatus{
 	STAND,
 	WALK
@@ -10,7 +12,9 @@ enum AnimationStatus{
 
 var animation_status = AnimationStatus.STAND
 func _ready():
-	player = load("res://Player/Scripts/PlayerClass.gd").new("test_player")
+	player = load("res://Player/Scripts/PlayerClass.gd").new(PLAYER_NAME)
+	animation.sprite_frames = load("res://Player/Animations/"+PLAYER_NAME+".tres")
+	animation.animation = "Stand"
 
 func analyze_anim():
 	var temp = animation_status

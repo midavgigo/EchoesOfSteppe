@@ -7,3 +7,10 @@ res://Player/Configurations/global/weapon_materials.json
 res://Player/Configurations/global/weapon_types.json
 res://Player/Configurations/test_weapons.json
 res://Player/Scripts/WeaponClass.gd
+res://Test/Scenes/Test.tscn
+res://Player/Scripts/EquipmentClass.gd
+res://Player/Scenes/Equipment.tscn
+res://Player/Scenes/Weapon.tscn
+res://Test/Scenes/FieldOfPain.tscn
+res://Test/Scripts/FieldOfPain.gd
+res://Player/Animations/TestAnimation.tres

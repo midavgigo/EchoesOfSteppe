@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://6xqff5wxsbtj"]
+
+[ext_resource type="Script" path="res://Test/Scripts/FieldOfPain.gd" id="1_n38fs"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_airmf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jt2yl"]
+size = Vector2(128, 128)
+
+[node name="FieldOfPain" type="Area2D"]
+material = SubResource("CanvasItemMaterial_airmf")
+script = ExtResource("1_n38fs")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_jt2yl")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
