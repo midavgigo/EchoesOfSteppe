@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://6xqff5wxsbtj"]
+[gd_scene load_steps=5 format=3 uid="uid://6xqff5wxsbtj"]
 
 [ext_resource type="Script" path="res://Test/Scripts/FieldOfPain.gd" id="1_n38fs"]
+[ext_resource type="Texture2D" uid="uid://ck4ofciwm200b" path="res://Test/Sprites/FieldOfPain/fop.png" id="2_dujbv"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_airmf"]
 
@@ -13,5 +14,8 @@ script = ExtResource("1_n38fs")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_jt2yl")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_dujbv")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

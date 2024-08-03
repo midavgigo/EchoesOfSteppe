@@ -2,4 +2,4 @@ extends Area2D
 
 
 func _on_body_entered(body):
-	pass
+	body.player.health -= 0.1

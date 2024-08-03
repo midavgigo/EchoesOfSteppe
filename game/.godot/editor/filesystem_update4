@@ -14,3 +14,4 @@ res://Player/Scenes/Weapon.tscn
 res://Test/Scenes/FieldOfPain.tscn
 res://Test/Scripts/FieldOfPain.gd
 res://Player/Animations/TestAnimation.tres
+res://Player/Animations/test_player.tres

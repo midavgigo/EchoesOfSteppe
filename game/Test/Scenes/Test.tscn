@@ -1,8 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://d248i6pvpbmwk"]
+[gd_scene load_steps=3 format=3 uid="uid://d248i6pvpbmwk"]
 
 [ext_resource type="PackedScene" uid="uid://boh5duax33f63" path="res://Player/Scenes/Player.tscn" id="1_7v810"]
+[ext_resource type="PackedScene" uid="uid://6xqff5wxsbtj" path="res://Test/Scenes/FieldOfPain.tscn" id="2_2dvfc"]
 
 [node name="Test" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_7v810")]
 position = Vector2(345, 201)
+
+[node name="FieldOfPain" parent="." instance=ExtResource("2_2dvfc")]
+position = Vector2(184, 120)

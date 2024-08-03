@@ -1,15 +1,27 @@
 extends Player
 
 class Player:
-	var health;
-	var stamina;
-	var walk;
-	var attack;
-	var dodge_type;
-	var acceleration = Vector2();
-	var velocity = Vector2();
+	var name
+	var health
+	var stamina
+	var walk
+	var attack
+	var dodge_type
+	var acceleration = Vector2()
+	var velocity = Vector2()
+	
+	func debug():
+		return 	"name: "+name+\
+				"\nhealth: "+str(health)+\
+				"\nstamina: "+str(stamina)+\
+				"\nwalk: "+str(walk)+\
+				"\nattack: "+str(attack)+\
+				"\ndodge_type: "+dodge_type+\
+				"\nacceleration: "+str(acceleration)+\
+				"\nvelocity: "+str(velocity)+"\n"
 	
 	func _init(name):
+		self.name = name
 		var file = FileAccess.open("res://Player/Configurations/test_players.json", FileAccess.READ)
 		var dict = JSON.parse_string(file.get_as_text())
 		match typeof(dict):
