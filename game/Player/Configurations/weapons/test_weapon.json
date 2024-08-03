@@ -1,8 +1,0 @@
-{
-	"type": {
-		"material": "ferum",
-		"type": "sword"
-	},
-	"speed": 1, 
-	"damage": 0.5
-}

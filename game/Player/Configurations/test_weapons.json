@@ -1,0 +1,8 @@
+{
+	"test_weapon":{
+		"material": "test_material",
+		"type": "test_type",
+		"speed": 1, 
+		"damage": 0.5
+	}
+}

@@ -10,7 +10,7 @@ enum AnimationStatus{
 
 var animation_status = AnimationStatus.STAND
 func _ready():
-	player = load("res://Player/Scripts/PlayerClass.gd").new("res://Player/Configurations/players/test_player.json")
+	player = load("res://Player/Scripts/PlayerClass.gd").new("test_player")
 
 func analyze_anim():
 	var temp = animation_status
