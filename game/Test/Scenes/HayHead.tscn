@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://sluh14ylbje3"]
+
+[ext_resource type="Texture2D" uid="uid://bfka1rehgpw83" path="res://Test/Sprites/HayHead/0.png" id="1_emugr"]
+[ext_resource type="Script" path="res://Test/Scripts/HayHead.gd" id="1_xiplw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tpjqy"]
+size = Vector2(99, 100)
+
+[node name="HayHead" type="CharacterBody2D" groups=["hittable"]]
+script = ExtResource("1_xiplw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, -1)
+shape = SubResource("RectangleShape2D_tpjqy")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_emugr")
+
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
