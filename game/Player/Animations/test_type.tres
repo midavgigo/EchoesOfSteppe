@@ -1,0 +1,26 @@
+[gd_resource type="SpriteFrames" load_steps=5 format=3 uid="uid://ctsl3hhxr4v72"]
+
+[ext_resource type="Texture2D" uid="uid://c6mh8nqjfk7pf" path="res://Player/Sprites/test_player/Weapons/test_type/0.png" id="1_0d01c"]
+[ext_resource type="Texture2D" uid="uid://chgxyloywy7vd" path="res://Player/Sprites/test_player/Weapons/test_type/1.png" id="2_kg0dg"]
+[ext_resource type="Texture2D" uid="uid://bg48uec05kvmv" path="res://Player/Sprites/test_player/Weapons/test_type/2.png" id="3_lq07s"]
+[ext_resource type="Texture2D" uid="uid://b7whn3pa5e0d7" path="res://Player/Sprites/test_player/Weapons/test_type/3.png" id="4_w3sa2"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_0d01c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_kg0dg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_lq07s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_w3sa2")
+}],
+"loop": false,
+"name": &"default",
+"speed": 4.0
+}]
