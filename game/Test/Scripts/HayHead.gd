@@ -10,6 +10,7 @@ func get_resist():
 	return resist
 
 func hit(damage, material):
+	rotate(0.01)
 	label.text = str(damage)
 	last_call = Time.get_unix_time_from_system()
 
