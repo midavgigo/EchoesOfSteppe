@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://dasgyntgp14mw"]
+
+[ext_resource type="Script" path="res://Props/Scripts/Block.gd" id="1_bk657"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xadpn"]
+size = Vector2(0, 0)
+
+[node name="Block" type="StaticBody2D"]
+script = ExtResource("1_bk657")
+metadata/title = ""
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_xadpn")

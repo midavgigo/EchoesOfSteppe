@@ -1,7 +1,8 @@
-Label
-Sprite2D
 CollisionShape2D
-CharacterBody2D
-Area2D
 AnimatedSprite2D
+Sprite2D
+StaticBody2D
+Area2D
+Label
+CharacterBody2D
 Node
