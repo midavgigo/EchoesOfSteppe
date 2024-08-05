@@ -1,6 +1,7 @@
+res://Enemy/Scripts
+/home/s415d/godot/kreaton.atom/game/Enemy/Configuration/
 res://Test/Sprites/HayHead
 res://Test/Scripts
 res://Player/Animations
 res://Player/Sprites/test_player/Weapons/test_type
 res://Player/Sprites/test_player/Dead
-/home/s415d/godot/kreaton.atom/game/Player/Configurations/global/

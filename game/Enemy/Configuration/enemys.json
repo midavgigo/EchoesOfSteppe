@@ -1,0 +1,19 @@
+{
+	"test_enemy":{
+		"health":1.0,
+		"width":50,
+		"height":100,
+		"movement":{
+			"speed": 100,
+			"accel": 200,
+			"pattern": "aggressive"
+		},
+		"attack":{
+			"distance":100,
+			"damage": 0.1,
+			"type": "wild",
+			"style": "melee",
+			"source": "test_enemy_weapon"
+		}
+	}
+}

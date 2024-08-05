@@ -1,10 +1,8 @@
+res://Test/Scenes/HayHead.tscn
 res://Player/Scripts/Player.gd
 res://Player/Scripts/PlayerClass.gd
-res://Test/Scenes/HayHead.tscn
 res://Test/Scripts/HayHead.gd
 res://Test/Scenes/Test.tscn
-res://Player/Scenes/Player.tscn
-res://Player/Configurations/test_weapons.json
-res://Player/Configurations/weapon_types.json
-res://Test/Scripts/FieldOfPain.gd
-res://Test/Scenes/FieldOfPain.tscn
+res://Enemy/Scenes/Enemy.tscn
+res://Enemy/Configuration/enemys.json
+res://Enemy/Scripts/EnemyClass.gd

@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://w12mkl5kdwma"]
+
+[ext_resource type="Script" path="res://Enemy/Scripts/Enemy.gd" id="1_8hap8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cer3f"]
+size = Vector2(0, 0)
+
+[node name="Enemy" type="CharacterBody2D"]
+script = ExtResource("1_8hap8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_cer3f")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
