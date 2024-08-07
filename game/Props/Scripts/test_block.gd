@@ -21,5 +21,5 @@ class TestBlockController:
 	#Вызывается если в поле action_area/action указано true
 	#player - объект игрока
 	func action(player):
-		print_debug("player \""+player.name+"\" was actioned with block \""+block.title+"\"")
+		print_debug("player \""+player.PLAYER_NAME+"\" was actioned with block \""+block.title+"\"")
 	

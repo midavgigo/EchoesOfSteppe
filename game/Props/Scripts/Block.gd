@@ -29,14 +29,14 @@ func _ready():
 			if dict[title]["animated"] == "true":
 				sprite = AnimatedSprite2D.new()
 				add_child(sprite)
-				sprite.sprite_frames = load("res://Props/Animations/"+title+".tres")
+				sprite.sprite_frames = load("res://Props/Animations/Blocks/"+title+".tres")
 				raw_width = sprite.sprite_frames.get_frame_texture("default", 0).get_width()
 				raw_height = sprite.sprite_frames.get_frame_texture("default", 0).get_height()
 				sprite.play("default")
 			else:
 				sprite = Sprite2D.new()
 				add_child(sprite)
-				sprite.texture = load("res://Props/Sprites/"+title+"/"+title+".png")
+				sprite.texture = load("res://Props/Sprites/Blocks/"+title+"/"+title+".png")
 				raw_width = sprite.texture.get_width()
 				raw_height = sprite.texture.get_height()
 			sprite.transform = sprite.transform.scaled(Vector2(width/raw_width, height/raw_height))
