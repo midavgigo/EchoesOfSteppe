@@ -9,7 +9,5 @@ size = Vector2(0, 0)
 script = ExtResource("1_bk657")
 metadata/title = ""
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_xadpn")

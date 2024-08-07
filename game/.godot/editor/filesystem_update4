@@ -2,10 +2,10 @@ res://Test/Scenes/Test.tscn
 res://Player/Scripts/Player.gd
 res://Player/Scripts/PlayerClass.gd
 res://Props/Scripts/Floor.gd
-res://Props/Scripts/KillingFloor.gd
-res://Props/Scenes/Floor.tscn
-res://Props/Scenes/Block.tscn
-res://Player/Scenes/Player.tscn
 res://Props/Configuration/blocks.json
-res://Props/Configuration/floors.json
 res://Props/Scripts/Block.gd
+res://Props/Scenes/Block.tscn
+res://Props/Configurations/blocks.json
+res://Props/Scripts/test_block.gd
+res://Props/Scenes/Floor.tscn
+res://Test/Scenes/HayHead.tscn

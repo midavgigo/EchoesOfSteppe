@@ -69,6 +69,8 @@ func hit():
 				i.hit(weapon.damage*weapon.flesh, weapon.material)
 			"spirit":
 				i.hit(weapon.damage*weapon.spirit, weapon.material)
+			"none":
+				i.hit(weapon.damage, weapon.material)
 
 func player_process(delta):
 	var x = Input.get_action_strength("player_right")-Input.get_action_strength("player_left")

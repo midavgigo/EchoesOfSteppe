@@ -8,7 +8,7 @@ var floor_controller = null
 
 func _ready():
 	title = self.get_meta("title")
-	var file = FileAccess.open("res://Props/Configuration/floors.json",FileAccess.READ)
+	var file = FileAccess.open("res://Props/Configurations/floors.json",FileAccess.READ)
 	var dict = JSON.parse_string(file.get_as_text())
 	match typeof(dict):
 		TYPE_DICTIONARY:
