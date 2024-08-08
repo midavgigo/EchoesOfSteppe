@@ -57,7 +57,6 @@ func _ready():
 					on_action_collision.transform = on_action_collision.transform.translated(Vector2(x, y))
 				if dict[title]["destroy_type"] != "none":
 					self.add_to_group("hittable")
-					block_controller.set_hittable()
 		
 func _process(delta):
 	block_controller.process(delta)
