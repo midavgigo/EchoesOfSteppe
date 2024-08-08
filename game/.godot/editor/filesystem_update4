@@ -2,7 +2,4 @@ res://Props/Scenes/Floor.tscn
 res://Player/Scripts/Player.gd
 res://Player/Scripts/PlayerClass.gd
 res://Props/Scripts/Floor.gd
-res://Props/Scripts/test_floor.gd
-res://Props/Scenes/Block.tscn
-res://Test/Scenes/Test.tscn
 res://Props/Scripts/test_block.gd

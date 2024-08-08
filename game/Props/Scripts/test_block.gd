@@ -12,6 +12,8 @@ class TestBlockController:
 	func hit(damage, material):
 		print_debug("block \""+block.title+"\" was hitten with damage:"+str(damage)+" and material:"+str(material))
 	
+	func set_hittable():
+		print_debug("block \""+block.title+"\" can be hitten")
 	
 	#Функция, вызываемая циклически 
 	func process(delta):
