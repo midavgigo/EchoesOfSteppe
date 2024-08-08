@@ -1,22 +1,22 @@
-[gd_scene load_steps=4 format=3 uid="uid://d248i6pvpbmwk"]
+[gd_scene load_steps=5 format=3 uid="uid://d248i6pvpbmwk"]
 
 [ext_resource type="PackedScene" uid="uid://boh5duax33f63" path="res://Player/Scenes/Player.tscn" id="1_7v810"]
 [ext_resource type="PackedScene" uid="uid://6xqff5wxsbtj" path="res://Test/Scenes/FieldOfPain.tscn" id="2_2dvfc"]
-[ext_resource type="PackedScene" uid="uid://sluh14ylbje3" path="res://Test/Scenes/HayHead.tscn" id="3_kwlak"]
+[ext_resource type="PackedScene" uid="uid://cyb41ul6ss5ah" path="res://Props/Scenes/Floor.tscn" id="3_5mkoy"]
+[ext_resource type="PackedScene" uid="uid://dasgyntgp14mw" path="res://Props/Scenes/Block.tscn" id="4_y4vjx"]
 
 [node name="Test" type="Node2D"]
 
-[node name="Player" parent="." instance=ExtResource("1_7v810")]
+[node name="Player" parent="." groups=["player"] instance=ExtResource("1_7v810")]
 position = Vector2(345, 201)
 
 [node name="FieldOfPain" parent="." instance=ExtResource("2_2dvfc")]
 position = Vector2(184, 120)
 
-[node name="HayHead" parent="." instance=ExtResource("3_kwlak")]
-position = Vector2(152, 320)
+[node name="Floor" parent="." instance=ExtResource("3_5mkoy")]
+position = Vector2(576, 280)
+metadata/title = "test_floor"
 
-[node name="HayHead2" parent="." instance=ExtResource("3_kwlak")]
-position = Vector2(312, 416)
-
-[node name="HayHead3" parent="." instance=ExtResource("3_kwlak")]
-position = Vector2(528, 408)
+[node name="Block" parent="." instance=ExtResource("4_y4vjx")]
+position = Vector2(888, 232)
+metadata/title = "test_block"
