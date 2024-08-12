@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 @onready var sprite = $AnimatedSprite2D
 @onready var area = $Area2D
+@onready var weapon = $Area2D/AnimatedSprite2D
 
 var enemy
 var title
@@ -9,6 +10,7 @@ var player
 var smells
 var target 
 
+var dead = false
 var can_hit = false
 var passed_time = 0
 
@@ -58,10 +60,11 @@ func speed_analyze():
 	if not(x==0 and y==0):
 		area.rotate(round(atan2(y, x)/PI*2)*PI/2 - area.rotation)
 
-
 func attack(delta):
 	if can_hit:
 		if passed_time == 0:
+			weapon.visible = true
+			weapon.play("default")
 			player.set_hit(enemy.attack.damage, enemy.attack.type)
 		passed_time += delta
 		if passed_time > enemy.attack.data:
@@ -70,6 +73,10 @@ func attack(delta):
 		passed_time = 0
 
 func _process(delta):
+	if enemy.health <= 0:
+		sprite.play("Death")
+		dead = true
+		return 
 	var temp = get_tree().get_nodes_in_group("smell")
 	smells = []
 	for i in range(16):
@@ -86,7 +93,21 @@ func _on_area_2d_body_entered(body):
 	if body.is_in_group("player"):
 		can_hit = true
 
-
 func _on_area_2d_body_exited(body):
 	if body.is_in_group("player"):
 		can_hit = false
+
+func _on_animated_sprite_2d_animation_finished():
+	weapon.visible = false
+
+func get_resist():
+	return enemy.resist
+
+func hit(damage, material):
+	enemy.health -= damage
+	
+
+
+func _enemy_animation_end():
+	if dead:
+		queue_free()

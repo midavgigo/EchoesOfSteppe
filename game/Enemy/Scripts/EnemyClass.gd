@@ -17,6 +17,7 @@ class EnemyClass:
 	var width
 	var height
 	var name
+	var resist
 	
 	var velocity = Vector2()
 	var acceleration = Vector2()
@@ -38,6 +39,7 @@ class EnemyClass:
 				movement.accel = dict[name]["movement"]["accel"]
 				movement.pattern = dict[name]["movement"]["pattern"]
 				movement.speed = dict[name]["movement"]["speed"]
+				resist = dict[name]["resist"]
 	
 	func set_target(pos, tar):
 		var vec = (tar - pos).normalized()

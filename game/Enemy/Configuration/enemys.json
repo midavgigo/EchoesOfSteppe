@@ -1,6 +1,7 @@
 {
 	"test_enemy":{
 		"health":1.0,
+		"resist":"flesh",
 		"width":50,
 		"height":100,
 		"movement":{

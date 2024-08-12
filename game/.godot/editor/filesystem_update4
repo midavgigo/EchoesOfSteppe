@@ -7,3 +7,5 @@ res://Test/Scenes/Test.tscn
 res://Enemy/Scenes/Smell.tscn
 res://Enemy/Configuration/enemys.json
 res://Enemy/Scripts/EnemyClass.gd
+res://Enemy/Animations/enemy_attack.tres
+res://Enemy/Animations/test_enemy.tres

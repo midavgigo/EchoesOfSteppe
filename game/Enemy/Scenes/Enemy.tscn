@@ -1,14 +1,7 @@
-[gd_scene load_steps=13 format=3 uid="uid://w12mkl5kdwma"]
+[gd_scene load_steps=5 format=3 uid="uid://w12mkl5kdwma"]
 
 [ext_resource type="Script" path="res://Enemy/Scripts/Enemy.gd" id="1_8hap8"]
-[ext_resource type="Texture2D" uid="uid://hsr8kjg0eoqn" path="res://Enemy/Sprites/attack/0.png" id="2_bexo2"]
-[ext_resource type="Texture2D" uid="uid://443paoj5t2ir" path="res://Enemy/Sprites/attack/1.png" id="3_rleau"]
-[ext_resource type="Texture2D" uid="uid://xcx4xd3ir8f4" path="res://Enemy/Sprites/attack/2.png" id="4_1o73x"]
-[ext_resource type="Texture2D" uid="uid://c803uajx56p0x" path="res://Enemy/Sprites/attack/3.png" id="5_4alkv"]
-[ext_resource type="Texture2D" uid="uid://biwcgn0ye6ovx" path="res://Enemy/Sprites/attack/4.png" id="6_s43p1"]
-[ext_resource type="Texture2D" uid="uid://dvthwtonulgtx" path="res://Enemy/Sprites/attack/5.png" id="7_yw8nx"]
-[ext_resource type="Texture2D" uid="uid://v0hxkwpfycfo" path="res://Enemy/Sprites/attack/6.png" id="8_nw43k"]
-[ext_resource type="Texture2D" uid="uid://b3sss7dk4341d" path="res://Enemy/Sprites/attack/7.png" id="9_f75s2"]
+[ext_resource type="SpriteFrames" uid="uid://dfasvv10i87o2" path="res://Enemy/Animations/enemy_attack.tres" id="2_m33gw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cer3f"]
 size = Vector2(50, 100)
@@ -16,39 +9,7 @@ size = Vector2(50, 100)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kffac"]
 size = Vector2(100, 100)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_t2s2u"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("2_bexo2")
-}, {
-"duration": 1.0,
-"texture": ExtResource("3_rleau")
-}, {
-"duration": 1.0,
-"texture": ExtResource("4_1o73x")
-}, {
-"duration": 1.0,
-"texture": ExtResource("5_4alkv")
-}, {
-"duration": 1.0,
-"texture": ExtResource("6_s43p1")
-}, {
-"duration": 1.0,
-"texture": ExtResource("7_yw8nx")
-}, {
-"duration": 1.0,
-"texture": ExtResource("8_nw43k")
-}, {
-"duration": 1.0,
-"texture": ExtResource("9_f75s2")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
-
-[node name="Enemy" type="CharacterBody2D"]
+[node name="Enemy" type="CharacterBody2D" groups=["hittable"]]
 script = ExtResource("1_8hap8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -63,8 +24,11 @@ position = Vector2(80, 0)
 shape = SubResource("RectangleShape2D_kffac")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Area2D"]
+visible = false
 position = Vector2(80, 0)
-sprite_frames = SubResource("SpriteFrames_t2s2u")
+sprite_frames = ExtResource("2_m33gw")
 
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_enemy_animation_end"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="animation_finished" from="Area2D/AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
