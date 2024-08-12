@@ -5,7 +5,7 @@
 		"height":100,
 		"movement":{
 			"speed": 100,
-			"accel": 200,
+			"accel": 562.5,
 			"pattern": "aggressive"
 		},
 		"attack":{
