@@ -10,7 +10,7 @@ class EnemyClass:
 		var damage
 		var type
 		var style
-		var source
+		var data
 	var movement = Movement.new()
 	var attack = Attack.new()
 	var health
@@ -32,7 +32,7 @@ class EnemyClass:
 				height = dict[name]["height"]
 				attack.distance = dict[name]["attack"]["distance"]
 				attack.damage = dict[name]["attack"]["damage"]
-				attack.source = dict[name]["attack"]["source"]
+				attack.data = dict[name]["attack"]["data"]
 				attack.style = dict[name]["attack"]["style"]
 				attack.type = dict[name]["attack"]["type"]
 				movement.accel = dict[name]["movement"]["accel"]

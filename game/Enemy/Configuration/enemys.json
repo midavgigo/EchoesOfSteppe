@@ -11,9 +11,9 @@
 		"attack":{
 			"distance":100,
 			"damage": 0.1,
-			"type": "wild",
+			"type": "beast",
 			"style": "melee",
-			"source": "test_enemy_weapon"
+			"data": 0.5
 		}
 	}
 }
