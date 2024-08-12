@@ -62,15 +62,13 @@ func speed_analyze():
 
 func attack(delta):
 	if can_hit:
-		if passed_time == 0:
+		if passed_time > enemy.attack.data:
 			weapon.visible = true
 			weapon.play("default")
 			player.set_hit(enemy.attack.damage, enemy.attack.type)
-		passed_time += delta
-		if passed_time > enemy.attack.data:
 			passed_time = 0
-	else:
-		passed_time = 0
+	if passed_time < enemy.attack.data:
+		passed_time += delta
 
 func _process(delta):
 	if enemy.health <= 0:
