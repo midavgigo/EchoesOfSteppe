@@ -1,11 +1,10 @@
-res://Player/Scenes/Player.tscn
+res://Enemy/Scenes/Enemy.tscn
 res://Player/Scripts/Player.gd
 res://Player/Scripts/PlayerClass.gd
 res://Enemy/Scripts/Enemy.gd
-res://Enemy/Scenes/Enemy.tscn
+res://Enemy/Configuration/enemys.json
 res://Test/Scenes/Test.tscn
 res://Enemy/Scenes/Smell.tscn
-res://Enemy/Configuration/enemys.json
-res://Enemy/Scripts/EnemyClass.gd
-res://Enemy/Animations/enemy_attack.tres
-res://Enemy/Animations/test_enemy.tres
+res://Player/Scenes/Player.tscn
+res://Enemy/Scripts/Smell.gd
+res://Test/Scripts/Test.gd

@@ -14,9 +14,8 @@ var dead = false
 var can_hit = false
 var passed_time = 0
 
-func aggressive():
+func get_target():
 	var space_state = get_world_2d().direct_space_state
-	var no_smell = true
 	for i in smells:
 		if i == null:
 			continue
@@ -24,16 +23,22 @@ func aggressive():
 		query.exclude = [self, player]
 		var result = space_state.intersect_ray(query)
 		if not result:
-			enemy.set_target(position, i.position)
 			target = i
-			no_smell = false
-			break
-	if no_smell:
-		target = null
-		enemy.stop()
+			return true
+	target = null
+	return false
+
+func aggressive():
+	enemy.set_target(position, target.position)
 
 func tactic():
-	pass
+	if target.freshness > 0:
+		enemy.set_target(position, target.position)
+	else:
+		var position_target:Vector2 = position-target.position
+		position_target *= enemy.attack.distance/position_target.length() 
+		position_target += target.position
+		enemy.set_target(position, position_target)
 
 func scared():
 	pass
@@ -60,7 +65,7 @@ func speed_analyze():
 	if not(x==0 and y==0):
 		area.rotate(round(atan2(y, x)/PI*2)*PI/2 - area.rotation)
 
-func attack(delta):
+func melee(delta):
 	if can_hit:
 		if passed_time > enemy.attack.data:
 			weapon.visible = true
@@ -81,11 +86,13 @@ func _process(delta):
 		smells.append(null)
 	for i in temp:
 		smells[i.freshness] = i	
-	call(enemy.movement.pattern)
+	if get_target():
+		call(enemy.movement.pattern)
+	else:
+		enemy.stop()
 	enemy.calc(delta)
 	speed_analyze()
 	move_and_slide()
-	attack(delta)
 
 func _on_area_2d_body_entered(body):
 	if body.is_in_group("player"):
@@ -103,9 +110,9 @@ func get_resist():
 
 func hit(damage, material):
 	enemy.health -= damage
-	
-
 
 func _enemy_animation_end():
 	if dead:
 		queue_free()
+
+

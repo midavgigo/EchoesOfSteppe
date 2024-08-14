@@ -7,7 +7,7 @@
 		"movement":{
 			"speed": 100,
 			"accel": 562.5,
-			"pattern": "aggressive"
+			"pattern": "tactic"
 		},
 		"attack":{
 			"distance":100,
