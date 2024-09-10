@@ -1,0 +1,21 @@
+{
+	"nodes":[
+		{"id":"28ed1a5560766b02","type":"text","text":"Персонаж","x":-290,"y":-154,"width":150,"height":54,"color":"1"},
+		{"id":"0b551e9c372dddbd","type":"text","text":"Сопротивление","x":-460,"y":-320,"width":195,"height":59},
+		{"id":"952eb4522d3c1771","type":"text","text":"Боеспособность","x":-390,"y":40,"width":201,"height":60},
+		{"id":"080fd2a6a562895c","type":"text","text":"Перемещение","x":-52,"y":-338,"width":192,"height":60},
+		{"id":"cb5aed12ceb05657","type":"text","text":"Защита от экипировки","x":-486,"y":-504,"width":246,"height":50},
+		{"id":"49a24ef4df73dd39","type":"text","text":"Здоровье","x":-720,"y":-319,"width":150,"height":58},
+		{"id":"7c70038f82ffed61","type":"text","text":"Оружие","x":-415,"y":240,"width":250,"height":60},
+		{"id":"a7425908a924bc4c","type":"text","text":"Управление","x":293,"y":-342,"width":250,"height":60}
+	],
+	"edges":[
+		{"id":"e16e9127985b20d9","fromNode":"28ed1a5560766b02","fromSide":"top","toNode":"0b551e9c372dddbd","toSide":"bottom"},
+		{"id":"9dce0e72a53e006e","fromNode":"28ed1a5560766b02","fromSide":"bottom","toNode":"952eb4522d3c1771","toSide":"top"},
+		{"id":"7746628a8a63549d","fromNode":"28ed1a5560766b02","fromSide":"right","toNode":"080fd2a6a562895c","toSide":"left"},
+		{"id":"44c2b420ef456d78","fromNode":"0b551e9c372dddbd","fromSide":"top","toNode":"cb5aed12ceb05657","toSide":"bottom"},
+		{"id":"d4bd57c592fb1fb6","fromNode":"0b551e9c372dddbd","fromSide":"left","toNode":"49a24ef4df73dd39","toSide":"right"},
+		{"id":"1bacfcbb526be60b","fromNode":"952eb4522d3c1771","fromSide":"bottom","toNode":"7c70038f82ffed61","toSide":"top"},
+		{"id":"a204c930cb577dca","fromNode":"080fd2a6a562895c","fromSide":"right","toNode":"a7425908a924bc4c","toSide":"left"}
+	]
+}

@@ -11,6 +11,9 @@ size = Vector2(50, 100)
 size = Vector2(50.5, 47.5)
 
 [node name="Player" type="CharacterBody2D"]
+top_level = true
+light_mask = 2
+visibility_layer = 2
 script = ExtResource("1_mqfyf")
 
 [node name="Collider" type="CollisionShape2D" parent="."]

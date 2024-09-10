@@ -1,10 +1,6 @@
-res://Enemy/Scenes/Enemy.tscn
+res://Props/Scenes/Floor.tscn
 res://Player/Scripts/Player.gd
 res://Player/Scripts/PlayerClass.gd
-res://Enemy/Scripts/Enemy.gd
-res://Enemy/Configuration/enemys.json
-res://Test/Scenes/Test.tscn
-res://Enemy/Scenes/Smell.tscn
-res://Player/Scenes/Player.tscn
-res://Enemy/Scripts/Smell.gd
-res://Test/Scripts/Test.gd
+res://Props/Scripts/Floor.gd
+res://Props/Scripts/test_block.gd
+res://Props/Scripts/Block.gd
