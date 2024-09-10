@@ -138,13 +138,13 @@
   },
   "left-ribbon": {
     "hiddenItems": {
+      "obsidian-kanban:Создать новую доску": false,
       "switcher:Меню быстрого перехода": false,
       "graph:Граф": false,
       "canvas:Создать новый холст": false,
       "daily-notes:Сегодняшняя заметка": false,
       "templates:Вставить шаблон": false,
-      "command-palette:Открыть палитру команд": false,
-      "obsidian-kanban:Создать новую доску": false
+      "command-palette:Открыть палитру команд": false
     }
   },
   "active": "4482de079297f67e",
