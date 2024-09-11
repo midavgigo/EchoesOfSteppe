@@ -11,11 +11,18 @@
             "id": "4482de079297f67e",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "kanban",
               "state": {
-                "file": "Перснаж/Оружие, что оно из себя представляет.md",
-                "mode": "source",
-                "source": false
+                "file": "Враги/Ветка врагов.md",
+                "kanbanViewState": {
+                  "kanban-plugin": "board",
+                  "list-collapse": [
+                    false,
+                    false,
+                    false,
+                    false
+                  ]
+                }
               }
             }
           }
@@ -85,7 +92,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Перснаж/Оружие, что оно из себя представляет.md",
+                "file": "Враги/Ветка врагов.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +109,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Перснаж/Оружие, что оно из себя представляет.md",
+                "file": "Враги/Ветка врагов.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +132,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Перснаж/Оружие, что оно из себя представляет.md"
+                "file": "Враги/Ветка врагов.md"
               }
             }
           }
@@ -149,12 +156,14 @@
   },
   "active": "4482de079297f67e",
   "lastOpenFiles": [
+    "Враги/Снаряд.md",
+    "Враги/Ветка врагов.md",
+    "Перснаж/Оружие, что оно из себя представляет.md",
     "Перснаж/Личные задачи по проекту 1.08 - 4.08.md",
     "Перснаж/Игрок, что он из себя представляет.md",
     "объекты/Ветка объектов на карте.md",
     "объекты/Что из себя представляет Блок.md",
     "Доработка персонажа/Добработка персонажа.md",
-    "Враги/Ветка врагов.md",
     "несортируемое/Что нужно для беты.md"
   ]
 }

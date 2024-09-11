@@ -24,7 +24,7 @@ class EnemyClass:
 	
 	func _init(name):
 		self.name = name
-		var file = FileAccess.open("res://Enemy/Configuration/enemys.json", FileAccess.READ)
+		var file = FileAccess.open("res://Enemy/Configurations/enemys.json", FileAccess.READ)
 		var dict = JSON.parse_string(file.get_as_text())
 		match typeof(dict):
 			TYPE_DICTIONARY:
