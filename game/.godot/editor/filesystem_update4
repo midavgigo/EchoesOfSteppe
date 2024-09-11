@@ -1,7 +1,5 @@
-res://Enemy/Scripts/Missile.gd
+res://Test/Scenes/Test.tscn
 res://Player/Scripts/Player.gd
 res://Player/Scripts/PlayerClass.gd
 res://Props/Scripts/Floor.gd
-res://Missile/Script/Missile.gd
-res://Enemy/Scripts/EnemyClass.gd
-res://Missile/Configurations/missiles.json
+res://Tools/Scripts/JSONReader.gd
