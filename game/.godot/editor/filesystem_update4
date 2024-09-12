@@ -1,7 +1,8 @@
-res://Test/Scenes/Test.tscn
+res://Tools/Scripts/ConfReader.gd
 res://Player/Scripts/Player.gd
 res://Player/Scripts/PlayerClass.gd
 res://Props/Scripts/Floor.gd
-res://Tools/Scripts/JSONReader.gd
-res://Tools/Scripts/jSONReader.gd
-res://Tools/Scripts/ConfReader.gd
+res://Enemy/Scripts/Enemy.gd
+res://Enemy/Scripts/EnemyClass.gd
+res://Test/Scenes/Test.tscn
+res://Enemy/Scenes/Enemy.tscn

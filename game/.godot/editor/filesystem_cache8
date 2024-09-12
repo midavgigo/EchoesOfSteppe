@@ -1,5 +1,5 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1726078599
+::res://::1726136038
 icon.svg::CompressedTexture2D::9071186094908749467::1725987136::1725987887::1::::<><>::
 ::res://Enemy/::1725991794
 ::res://Enemy/Animations/::1725989972
@@ -169,10 +169,10 @@ test_floor.gd::GDScript::-1::1725990044::0::1::::<>TestFloorController<>::
 6.png::CompressedTexture2D::2942374862610350089::1725990044::1725990044::1::::<><>::
 7.png::CompressedTexture2D::8230997271269774836::1725990044::1725990044::1::::<><>::
 ::res://Test/::1725987136
-::res://Test/Scenes/::1726078669
+::res://Test/Scenes/::1726078777
 FieldOfPain.tscn::PackedScene::2224315551968074195::1725987136::0::1::::<><>::res://Test/Scripts/FieldOfPain.gd<>uid://ck4ofciwm200b::::res://Test/Sprites/FieldOfPain/fop.png
 HayHead.tscn::PackedScene::1287335592703535552::1725987136::0::1::::<><>::uid://bfka1rehgpw83::::res://Test/Sprites/HayHead/0.png<>res://Test/Scripts/HayHead.gd
-Test.tscn::PackedScene::9116247383656607102::1726078669::0::1::::<><>::uid://boh5duax33f63::::res://Player/Scenes/Player.tscn<>uid://6xqff5wxsbtj::::res://Test/Scenes/FieldOfPain.tscn<>uid://cyb41ul6ss5ah::::res://Props/Scenes/Floor.tscn<>uid://dasgyntgp14mw::::res://Props/Scenes/Block.tscn
+Test.tscn::PackedScene::9116247383656607102::1726078777::0::1::::<><>::uid://boh5duax33f63::::res://Player/Scenes/Player.tscn<>uid://6xqff5wxsbtj::::res://Test/Scenes/FieldOfPain.tscn<>uid://cyb41ul6ss5ah::::res://Props/Scenes/Floor.tscn<>uid://dasgyntgp14mw::::res://Props/Scenes/Block.tscn
 ::res://Test/Scripts/::1725989972
 FieldOfPain.gd::GDScript::-1::1725987136::0::1::::<>Area2D<>::
 HayHead.gd::GDScript::-1::1725987136::0::1::::<>CharacterBody2D<>::
@@ -183,5 +183,5 @@ fop.png::CompressedTexture2D::5535455843924356367::1725987136::1725987136::1::::
 ::res://Test/Sprites/HayHead/::1725987136
 0.png::CompressedTexture2D::2758056009468240270::1725987136::1725987136::1::::<><>::
 ::res://Tools/::1726078608
-::res://Tools/Scripts/::1726078649
-jSONReader.gd::GDScript::-1::1726078649::0::1::::<>JSONReader<>::
+::res://Tools/Scripts/::1726078777
+ConfReader.gd::GDScript::-1::1726078777::0::1::::<>ConfReader<>::

@@ -3,6 +3,7 @@ extends CharacterBody2D
 @onready var sprite = $AnimatedSprite2D
 @onready var area = $Area2D
 @onready var weapon = $Area2D/AnimatedSprite2D
+const EnemyClass = preload("res://Enemy/Scripts/EnemyClass.gd")
 
 var enemy
 var title
@@ -45,7 +46,7 @@ func scared():
 
 func _ready():
 	title = get_meta("title")
-	enemy = load("res://Enemy/Scripts/EnemyClass.gd").new(title)
+	enemy = EnemyClass.new(title)
 	sprite.sprite_frames = load("res://Enemy/Animations/"+title+".tres")
 	sprite.animation = "Stand"
 	sprite.play("Stand")

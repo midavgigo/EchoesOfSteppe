@@ -1,5 +1,6 @@
 extends EnemyClass
 
+const ConfReader = preload("res://Tools/Scripts/ConfReader.gd")
 class EnemyClass:
 	class Movement:
 		var speed
@@ -24,22 +25,19 @@ class EnemyClass:
 	
 	func _init(name):
 		self.name = name
-		var file = FileAccess.open("res://Enemy/Configurations/enemys.json", FileAccess.READ)
-		var dict = JSON.parse_string(file.get_as_text())
-		match typeof(dict):
-			TYPE_DICTIONARY:
-				health = dict[name]["health"]
-				width = dict[name]["width"]
-				height = dict[name]["height"]
-				attack.distance = dict[name]["attack"]["distance"]
-				attack.damage = dict[name]["attack"]["damage"]
-				attack.data = dict[name]["attack"]["data"]
-				attack.style = dict[name]["attack"]["style"]
-				attack.type = dict[name]["attack"]["type"]
-				movement.accel = dict[name]["movement"]["accel"]
-				movement.pattern = dict[name]["movement"]["pattern"]
-				movement.speed = dict[name]["movement"]["speed"]
-				resist = dict[name]["resist"]
+		var reader = ConfReader.new(ConfReader.Roots.ENEMY, "enemys", name)
+		health = reader.getField("health")
+		width = reader.getField("width")
+		height = reader.getField("height")
+		attack.distance = reader.getField("attack/distance")
+		attack.damage = reader.getField("attack/damage")
+		attack.data = reader.getField("attack/data")
+		attack.style = reader.getField("attack/style")
+		attack.type = reader.getField("attack/type")
+		movement.accel = reader.getField("movement/accel")
+		movement.pattern = reader.getField("movement/pattern")
+		movement.speed = reader.getField("movement/speed")
+		resist = reader.getField("resist")
 	
 	func set_target(pos, tar):
 		var vec = (tar - pos).normalized()
