@@ -1,0 +1,7 @@
+{
+	"test_floor":{
+		"animated":"true",
+		"script":"res://Prop/Scripts/test_floor.gd",
+		"action":"true"
+	}
+}

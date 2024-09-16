@@ -28,10 +28,10 @@ class ConfReader:
 		match typeof(self.dict):
 			TYPE_DICTIONARY:
 				self.dict = self.dict[name]
-				print_debug("OK:\tconfiguration", path, "was readed succesfuly")
+				print_debug("OK:\tconfiguration ", path, " was readed succesfuly")
 			TYPE_NIL:
 				self.dict = Dictionary()
-				print_debug("Warning:\t configuration", path, "was not readed. Creating empty configuration")
+				print_debug("Warning:\t configuration ", path, " was not readed. Creating empty configuration")
 	
 	func getField(path: String):
 		var elems = path.split("/")

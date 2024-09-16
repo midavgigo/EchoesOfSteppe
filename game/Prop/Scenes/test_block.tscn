@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://bvexoo1u8w8qp"]
+
+[ext_resource type="PackedScene" uid="uid://dasgyntgp14mw" path="res://Prop/Scenes/Block.tscn" id="1_cwlor"]
+[ext_resource type="SpriteFrames" uid="uid://5ug8reslcnau" path="res://Prop/Animations/Blocks/test_block.tres" id="2_86nbs"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sdvm0"]
+size = Vector2(100, 100)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6h4p3"]
+
+[node name="TestBlock" type="Node2D"]
+
+[node name="Block" parent="." instance=ExtResource("1_cwlor")]
+metadata/title = "test_block"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Block"]
+sprite_frames = ExtResource("2_86nbs")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Block"]
+shape = SubResource("RectangleShape2D_sdvm0")
+
+[node name="Area2D" type="Area2D" parent="Block"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Block/Area2D"]
+position = Vector2(-72, 0)
+shape = SubResource("RectangleShape2D_6h4p3")

@@ -1,0 +1,8 @@
+{
+	"test_block":{
+		"animated":"true",
+		"script":"res://Prop/Scripts/test_block.gd",
+		"action":"true",
+		"destroyable":"true"
+	}
+}
