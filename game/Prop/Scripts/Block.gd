@@ -35,6 +35,8 @@ func _ready():
 				action_area.body_exited.connect(_on_exited)
 			if reader.getField("destroyable"):
 				self.add_to_group("hittable")
+		TYPE_NIL:
+			print_debug("Warning: You are creating useless block. 'Block' - is script-based scene")
 
 func _process(delta):
 	if is_controlled:
