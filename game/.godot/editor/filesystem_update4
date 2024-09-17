@@ -7,3 +7,4 @@ res://Prop/Scenes/Block.tscn
 res://Tools/Scripts/ConfReader.gd
 res://Prop/Scripts/LvLScripts/Doors/door-moving.gd
 res://Prop/Scripts/Block.gd
+res://Prop/Scenes/Door.tscn

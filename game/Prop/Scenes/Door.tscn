@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://bbixiwvxpqjy6"]
+[gd_scene load_steps=6 format=3 uid="uid://bbixiwvxpqjy6"]
 
 [ext_resource type="PackedScene" uid="uid://dasgyntgp14mw" path="res://Prop/Scenes/Block.tscn" id="1_ayytx"]
 [ext_resource type="Texture2D" uid="uid://d2ifdy1k8tyrr" path="res://icon.svg" id="2_13kaa"]
+[ext_resource type="Script" path="res://Prop/Scripts/LvLScripts/Doors/door-moving.gd" id="2_hewwd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aucfy"]
 size = Vector2(30, 200)
@@ -12,7 +13,8 @@ size = Vector2(101, 400)
 [node name="Door" type="Node2D"]
 
 [node name="Block" parent="." instance=ExtResource("1_ayytx")]
-metadata/title = "door-action"
+metadata/interactive = true
+metadata/script = ExtResource("2_hewwd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Block"]
 position = Vector2(0, 4)

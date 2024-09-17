@@ -4,4 +4,7 @@
 
 [node name="Block" type="StaticBody2D"]
 script = ExtResource("1_q5o5l")
-metadata/title = ""
+metadata/animated = false
+metadata/interactive = false
+metadata/destroyable = false
+metadata/script = null
