@@ -35,9 +35,16 @@ class ConfReader:
 	
 	func getField(path: String):
 		var elems = path.split("/")
-		var ret = self.dict.duplicate(true)
+		var el = self.dict.duplicate(true)
 		for i in elems:
-			ret = ret[i]
+			el = el[i]
+		var ret:String = el
+		if ret in ["true", "false"]:
+			return ret == "true"
+		if ret.is_valid_int():
+			return ret.to_int()
+		if ret.is_valid_float():
+			return ret.to_float()
 		return ret
 	
 #	func setField(value, path:String):
