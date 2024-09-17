@@ -9,6 +9,7 @@ var block_controller = null
 var can_action = false
 var player = null
 var is_controlled = false
+@onready var collider = $CollisionShape2D
 
 func hit(damage, material):
 	block_controller.hit(damage, material)
@@ -31,7 +32,7 @@ func _ready():
 			if reader.getField("action"):
 				action_area = $Area2D
 				action_area.body_entered.connect(_on_entered)
-				action_area.body_exited.connect(_on_entered)
+				action_area.body_exited.connect(_on_exited)
 			if reader.getField("destroyable"):
 				self.add_to_group("hittable")
 
@@ -45,7 +46,9 @@ func _on_entered(body):
 	if body.is_in_group("player"):
 		can_action = true
 		player = body
+		block_controller.on_entered(body)
 
 func _on_exited(body):
 	if body.is_in_group("player"):
 		can_action = false
+		block_controller.on_exited(body)
