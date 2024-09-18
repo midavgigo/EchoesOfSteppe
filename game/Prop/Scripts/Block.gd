@@ -5,8 +5,6 @@ var action_area:Area2D = null
 var block_controller = null
 var can_action = false
 var player = null
-var is_controlled = false
-@onready var collider = $CollisionShape2D
 
 func hit(damage, material):
 	block_controller.hit(damage, material)
@@ -16,7 +14,6 @@ func get_resist():
 
 func _ready():
 	var path:Resource = get_meta("script")
-	is_controlled = true
 	block_controller = path.new(self)
 	if get_meta("animated"):
 		sprite = $AnimatedSprite2D
@@ -30,10 +27,9 @@ func _ready():
 		self.add_to_group("hittable")
 
 func _process(delta):
-	if is_controlled:
-		block_controller.process(delta)
-		if can_action && Input.is_action_just_pressed("action"):
-			block_controller.action(player)
+	block_controller.process(delta)
+	if can_action && Input.is_action_just_pressed("action"):
+		block_controller.action(player)
 
 func _on_entered(body):
 	if body.is_in_group("player"):

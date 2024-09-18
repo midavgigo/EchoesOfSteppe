@@ -4,9 +4,4 @@
 		"script":"res://Prop/Scripts/test_floor.gd",
 		"action":"true"
 	}
-	"door_opener":{
-		"animated": "true",
-		"script":"",
-		"action":"true"
-	}
 }

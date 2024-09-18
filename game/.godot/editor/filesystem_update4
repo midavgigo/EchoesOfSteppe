@@ -1,10 +1,6 @@
-res://LvL/Scenes/BeginLvL1.tscn
+res://Prop/Scenes/Floor.tscn
 res://Player/Scripts/Player.gd
 res://Player/Scripts/PlayerClass.gd
 res://Prop/Scripts/Floor.gd
-res://Prop/Scenes/wall.tscn
-res://Prop/Scenes/Block.tscn
-res://Tools/Scripts/ConfReader.gd
-res://Prop/Scripts/LvLScripts/Doors/door-moving.gd
+res://Prop/Configurations/floors.json
 res://Prop/Scripts/Block.gd
-res://Prop/Scenes/Door.tscn
