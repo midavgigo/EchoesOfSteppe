@@ -10,10 +10,10 @@ class DoorMovingController:
 		var collider: CollisionShape2D = block.collider
 		vector_move = Vector2(0, collider.shape.get_rect().size.y)
 	
-	func on_entered(body):
+	func on_entered(body, is_player):
 		pass
 		
-	func on_exited(body):
+	func on_exited(body, is_player):
 		pass
 		
 	func hit(damage, material):
