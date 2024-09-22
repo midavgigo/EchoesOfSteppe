@@ -1,8 +1,0 @@
-res://Prop/Scenes/Block.tscn
-res://Player/Scripts/Player.gd
-res://Player/Scripts/PlayerClass.gd
-res://Prop/Scripts/Floor.gd
-res://Prop/Scenes/test_prop.tscn
-res://Prop/Scripts/Block.gd
-res://Prop/Scripts/test_floor.gd
-res://Prop/Scenes/Floor.tscn
