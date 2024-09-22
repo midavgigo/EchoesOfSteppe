@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://diuwquv8vn4b0"]
+
+[ext_resource type="PackedScene" uid="uid://dasgyntgp14mw" path="res://Prop/Scenes/Block.tscn" id="1_gwe67"]
+
+[node name="TestProp" type="Node2D"]
+
+[node name="Block" parent="." instance=ExtResource("1_gwe67")]
+
+[node name="Sprite2D" type="Sprite2D" parent="Block"]
+
+[node name="Area2D" type="Area2D" parent="Block"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Block/Area2D"]

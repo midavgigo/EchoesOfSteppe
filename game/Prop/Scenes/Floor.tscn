@@ -1,12 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://cyb41ul6ss5ah"]
+[gd_scene load_steps=3 format=3 uid="uid://cyb41ul6ss5ah"]
 
 [ext_resource type="Script" path="res://Prop/Scripts/Floor.gd" id="1_fcwm5"]
+
+[sub_resource type="GDScript" id="GDScript_cwi3s"]
 
 [node name="Floor" type="Area2D"]
 script = ExtResource("1_fcwm5")
 metadata/animated = false
-metadata/action = false
-metadata/script = null
+metadata/interactive = false
+metadata/script = SubResource("GDScript_cwi3s")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

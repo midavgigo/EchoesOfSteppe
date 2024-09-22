@@ -1,6 +1,4 @@
-res://Prop/Scenes/Floor.tscn
+res://Prop/Scenes/Block.tscn
 res://Player/Scripts/Player.gd
 res://Player/Scripts/PlayerClass.gd
 res://Prop/Scripts/Floor.gd
-res://Prop/Configurations/floors.json
-res://Prop/Scripts/Block.gd
