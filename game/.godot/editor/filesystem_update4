@@ -1,7 +1,0 @@
-res://Prop/Scenes/Floor.tscn
-res://Player/Scripts/Player.gd
-res://Player/Scripts/PlayerClass.gd
-res://Prop/Scenes/Block.tscn
-res://Prop/Scenes/Door.tscn
-res://Prop/Scenes/test_prop.tscn
-res://Prop/Scripts/LvLScripts/Doors/door-moving.gd
