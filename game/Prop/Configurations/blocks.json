@@ -1,0 +1,14 @@
+{
+	"test_block":{
+		"animated":"true",
+		"script":"res://Prop/Scripts/test_block.gd",
+		"action":"true",
+		"destroyable":"true"
+	},
+	"door-action":{
+		"animated":"false"
+		,"script":"res://Prop/Scripts/LvLScripts/Doors/door-moving.gd"
+		,"action":"true"
+		,"destroyable":"false"
+	}
+}

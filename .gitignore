@@ -1,53 +1,5 @@
-
 game/Godot_v4.2.2-stable_win64.exe
-game/.godot/shader_cache/SkyShaderGLES3/6c055fad5030d7ca1664463f27a3c43abe08fa03bee79e30430ef3a73651f7e3/326815bf28d368ee4b1580f2510139a11da0b398.cache
-game/.godot/shader_cache/SceneShaderGLES3/ed6ebe2f088ba7de191b4ac6893ac1b4615945e5a1c1dfaa230fcc6b13cd6938/759922d24d18f6e93947155d0345545f9941ad7c.cache
-game/.godot/shader_cache/SceneShaderGLES3/ed6ebe2f088ba7de191b4ac6893ac1b4615945e5a1c1dfaa230fcc6b13cd6938/6bb7c9a2fd1c4a8fa77cb96555b9b4a720209981.cache
-game/.godot/shader_cache/SceneShaderGLES3/ed6ebe2f088ba7de191b4ac6893ac1b4615945e5a1c1dfaa230fcc6b13cd6938/0c9689a7dae2d011729a1e2cf29c71ecb4a7e8bb.cache
-game/.godot/shader_cache/CubemapFilterShaderGLES3/adeb1cf3e611912a504be484fc910665832f3eeb41111915d6a8276248886bca/6bb7c9a2fd1c4a8fa77cb96555b9b4a720209981.cache
-game/.godot/shader_cache/CopyShaderGLES3/f36d42ef0d66943345ad68424db24676b1ae2e40e60d383fcb82cfa9f5ba6110/6bb7c9a2fd1c4a8fa77cb96555b9b4a720209981.cache
-game/.godot/shader_cache/CanvasShaderGLES3/bec633837d4d7017e2dccbbbefb9bb94787bec8cf2e24b477db663e0a091c309/6bb7c9a2fd1c4a8fa77cb96555b9b4a720209981.cache
-game/.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.md5
-game/.godot/global_script_class_cache.cfg
-game/.godot/editor/script_editor_cache.cfg
-game/.godot/editor/project_metadata.cfg
-game/.godot/editor/Floor.tscn-folding-a26eb7d6ce5bf4dd9536af6d3564d1e8.cfg
-game/.godot/editor/filesystem_cache8
-game/.godot/editor/editor_layout.cfg
-game/.godot/editor/editor_layout.cfg
-game/.godot/editor/filesystem_cache8
-game/.godot/editor/Floor.tscn-folding-a26eb7d6ce5bf4dd9536af6d3564d1e8.cfg
-game/.godot/editor/project_metadata.cfg
-game/.godot/editor/script_editor_cache.cfg
-game/.godot/global_script_class_cache.cfg
-game/.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.md5
-game/icon.svg.import
-game/project.godot
-game/.godot/editor/editor_layout.cfg
-game/.godot/editor/filesystem_cache8
-game/.godot/editor/Floor.tscn-folding-a26eb7d6ce5bf4dd9536af6d3564d1e8.cfg
-game/.godot/editor/project_metadata.cfg
-game/.godot/editor/script_editor_cache.cfg
-game/.godot/global_script_class_cache.cfg
-game/.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.md5
-game/icon.svg.import
-game/project.godot
-organization/Задачи и записки Вадим Максимов/.obsidian/appearance.json
-organization/Задачи и записки Вадим Максимов/.obsidian/community-plugins.json
-organization/Задачи и записки Вадим Максимов/.obsidian/core-plugins-migration.json
-organization/Задачи и записки Вадим Максимов/.obsidian/core-plugins.json
-organization/Задачи и записки Вадим Максимов/.obsidian/workspace.json
-game/.godot/editor/editor_layout.cfg
-game/.godot/editor/filesystem_cache8
-game/.godot/editor/Floor.tscn-folding-a26eb7d6ce5bf4dd9536af6d3564d1e8.cfg
-game/.godot/editor/project_metadata.cfg
-game/.godot/editor/script_editor_cache.cfg
-game/.godot/global_script_class_cache.cfg
-game/.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.md5
-game/icon.svg.import
-game/project.godot
-organization/Задачи и записки Вадим Максимов/.obsidian/appearance.json
-organization/Задачи и записки Вадим Максимов/.obsidian/community-plugins.json
-organization/Задачи и записки Вадим Максимов/.obsidian/core-plugins-migration.json
-organization/Задачи и записки Вадим Максимов/.obsidian/core-plugins.json
-organization/Задачи и записки Вадим Максимов/.obsidian/workspace.json
+game/.godot/*
+organization/Задачи и записки Вадим Максимов/.obsidian/*
+/game/.godot
+/organization/Задачи и записки Вадим Максимов/.obsidian

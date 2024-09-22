@@ -1,0 +1,8 @@
+{
+	"test_missile":{
+		"start_speed":100,
+		"life_end": "hts",
+		"life_time": 5000,
+		"controller": "path/to/controller"
+	}
+}
