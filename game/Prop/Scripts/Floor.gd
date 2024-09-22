@@ -1,12 +1,11 @@
 extends Area2D
 
-
-var title = ""
 var sprite = null
+@onready var collider = $CollisionShape2D
+var player = null
 
 var floor_controller = null
 var can_action = false
-var player = null
 
 func _ready():
 	if get_meta("animated"):
@@ -24,14 +23,18 @@ func _process(delta):
 		floor_controller.action(player)
 
 func _on_entered(body):
-	floor_controller.on_entered(body)
+	var is_player = false
 	if body.is_in_group("player"):
 		can_action = true
 		player = body
+		is_player = true
+	floor_controller.on_entered(body, is_player)
 
 
 
 func _on_exited(body):
-	floor_controller.on_exited(body)
+	var is_player = false
 	if body.is_in_group("player"):
 		can_action = false
+		is_player = true
+	floor_controller.on_exited(body, is_player)

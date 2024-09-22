@@ -1,10 +1,47 @@
-[gd_scene load_steps=2 format=3 uid="uid://diuwquv8vn4b0"]
+[gd_scene load_steps=3 format=3 uid="uid://diuwquv8vn4b0"]
 
 [ext_resource type="PackedScene" uid="uid://dasgyntgp14mw" path="res://Prop/Scenes/Block.tscn" id="1_gwe67"]
+
+[sub_resource type="GDScript" id="GDScript_tabq7"]
+script/source = "extends TestBlockController
+
+class TestBlockController:
+	var block = null
+	#Конструктор, в который передаётся объект блока
+	func _init(block):
+		self.block = block
+		print_debug(\"block controller is initialized\")
+	
+	#Функция, которая нужна если в поле destroy указан hit
+	#Она вызывается тогда, когда по блоку проходит удар с уроном damage и материал оружия material
+	func hit(damage, material):
+		print_debug(\"block was hitten with damage:\"+str(damage)+\" and material:\"+str(material))
+	
+	#Функция, вызываемая циклически 
+	func process(delta):
+		pass
+	
+	#Функция, вызываемая при взаимодействии с блоком
+	#Вызывается если в поле action_area/action указано true
+	#player - объект игрока
+	func action(player):
+		print_debug(\"player \\\"\"+player.PLAYER_NAME+\"\\\" was actioned with block\")
+	
+	func on_entered(body, is_player):
+		pass
+	
+	func on_exited(body, is_player):
+		pass
+"
 
 [node name="TestProp" type="Node2D"]
 
 [node name="Block" parent="." instance=ExtResource("1_gwe67")]
+metadata/interactive = true
+metadata/destroyable = true
+metadata/script = SubResource("GDScript_tabq7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Block"]
 
 [node name="Sprite2D" type="Sprite2D" parent="Block"]
 
