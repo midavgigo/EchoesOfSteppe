@@ -1,8 +1,0 @@
-res://Tools/Scripts/ConfReader.gd
-res://Player/Scripts/Player.gd
-res://Player/Scripts/PlayerClass.gd
-res://Props/Scripts/Floor.gd
-res://Enemy/Scripts/Enemy.gd
-res://Enemy/Scripts/EnemyClass.gd
-res://Test/Scenes/Test.tscn
-res://Enemy/Scenes/Enemy.tscn
