@@ -3,3 +3,4 @@ game/.godot/*
 organization/Задачи и записки Вадим Максимов/.obsidian/*
 /game/.godot
 /organization/Задачи и записки Вадим Максимов/.obsidian
+*.import
