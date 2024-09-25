@@ -1,8 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://cyywg334u43c4"]
+[gd_scene load_steps=4 format=3 uid="uid://cyywg334u43c4"]
 
 [ext_resource type="Script" path="res://Missile/Scripts/Missile.gd" id="1_rkalo"]
 
 [sub_resource type="GDScript" id="GDScript_1a6bx"]
+
+[sub_resource type="Resource" id="Resource_wikev"]
 
 [node name="Missile" type="RigidBody2D"]
 script = ExtResource("1_rkalo")
@@ -11,9 +13,10 @@ metadata/timeoff_handle = false
 metadata/speedoff_handle = false
 metadata/life_time = 0
 metadata/controller = SubResource("GDScript_1a6bx")
-metadata/package = null
 metadata/packed = false
 metadata/damage = 0.0
+metadata/animated = false
+metadata/package = SubResource("Resource_wikev")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

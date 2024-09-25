@@ -47,8 +47,12 @@ func _on_body_exited(body):
 	if hit_handle:
 		controller.body_exited(body, body.is_in_group("player"))
 
+func spawn():
+	if packed:
+		add_child(package.instantiate())
+
 func destroy():
 	if packed:
-		pass #добавить спавн пакета
+		spawn()
 	controller.destroy()
 	queue_free()
