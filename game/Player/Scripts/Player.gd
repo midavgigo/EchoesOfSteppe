@@ -1,18 +1,11 @@
 extends CharacterBody2D
-var player
-var weapon
-var equipment
-@onready var debug_label = $DebugMessage
-@onready var animation = $Animation
-@onready var hp_front = $HpFront
-@onready var weapon_anim = $Area2D/WeaponAnimation
-@onready var area = $Area2D
-var PLAYER_NAME = "test_player"
-var EQUIPMENT_NAME = "test_equipment"
-var WEAPON_NAME = "test_weapon"
-var hitting = false
-var enemys = []
-
+#imports
+const PlayerClass 		= preload("res://Player/Scripts/PlayerClass.gd")
+const WeaponClass 		= preload("res://Player/Scripts/WeaponClass.gd")
+const EquipmentClass 	= preload("res://Player/Scripts/EquipmentClass.gd")
+#scenes
+const Missile			= preload("res://Missile/Scenes/test/test_missile.tscn")
+#enums
 enum AnimationStatus{
 	STAND,
 	WALK,
@@ -24,20 +17,25 @@ enum DebugType{
 	WEAPON,
 	EQUIPMENT
 }
-
+#vars
+var player
+var weapon
+var equipment
+var PLAYER_NAME = "test_player"
+var EQUIPMENT_NAME = "test_equipment"
+var WEAPON_NAME = "test_weapon"
+var hitting = false
+var enemys = []
 var debug_type = DebugType.PLAYER
-
 var animation_status = AnimationStatus.STAND
-func _ready():
-	player = load("res://Player/Scripts/PlayerClass.gd").new(PLAYER_NAME)
-	weapon = load("res://Player/Scripts/WeaponClass.gd").new(WEAPON_NAME)
-	equipment = load("res://Player/Scripts/EquipmentClass.gd").new(EQUIPMENT_NAME)
-	animation.sprite_frames = load("res://Player/Animations/"+PLAYER_NAME+".tres")
-	animation.animation = "Stand"
-	animation.play("Stand")
-	weapon_anim.sprite_frames = load("res://Player/Animations/"+weapon.type+".tres")
-	weapon_anim.set_speed_scale(weapon.speed/weapon_anim.sprite_frames.get_animation_speed("default")*weapon.speed_q)
+#nodes
+@onready var debug_label = $DebugMessage
+@onready var animation = $Animation
+@onready var hp_front = $HpFront
+@onready var weapon_anim = $Area2D/WeaponAnimation
+@onready var area = $Area2D
 
+#funcs
 func analyze_anim():
 	var temp = animation_status
 	if velocity.length() < 30:
@@ -72,6 +70,13 @@ func hit():
 			"none":
 				i.hit(weapon.damage, weapon.material)
 
+func shoot():
+	var mouse = get_global_mouse_position()
+	var spos = position
+	var missile = Missile.instantiate().get_child(0)
+	missile.initialize((mouse-spos).limit_length(10))
+	get_tree().root.add_child(missile)
+
 func player_process(delta):
 	var x = Input.get_action_strength("player_right")-Input.get_action_strength("player_left")
 	var y = Input.get_action_strength("player_down")-Input.get_action_strength("player_up")
@@ -81,6 +86,8 @@ func player_process(delta):
 	player.calc(delta*10)
 	if Input.is_action_just_pressed("hit"):
 		hit()
+	if Input.is_action_just_pressed("shoot"):
+		shoot()
 	velocity = player.get_velocity()
 	move_and_slide()
 
@@ -92,6 +99,18 @@ func set_hit(damage, type):
 			player.health -= damage*equipment.beast
 		"spirit":
 			player.health -= damage*equipment.spirit
+
+#sysfuncs
+func _ready():
+	player = PlayerClass.new(PLAYER_NAME)
+	weapon = WeaponClass.new(WEAPON_NAME)
+	equipment = EquipmentClass.new(EQUIPMENT_NAME)
+	animation.sprite_frames = load("res://Player/Animations/"+PLAYER_NAME+".tres")
+	animation.animation = "Stand"
+	animation.play("Stand")
+	weapon_anim.sprite_frames = load("res://Player/Animations/"+weapon.type+".tres")
+	weapon_anim.set_speed_scale(weapon.speed/weapon_anim.sprite_frames.get_animation_speed("default")*weapon.speed_q)
+
 
 func _process(delta):
 	analyze_anim()

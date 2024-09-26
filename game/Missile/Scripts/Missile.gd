@@ -18,7 +18,7 @@ const MIN_SPEED 				= 0.1
 
 var time_left = 0
 
-func init(speed: Vector2):
+func initialize(speed: Vector2):
 	self.speed = speed 
 	controller = controller.new(self)
 
