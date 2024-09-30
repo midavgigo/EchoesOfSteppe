@@ -1,0 +1,30 @@
+{
+	"nodes":[
+		{"id":"804c79a713c00275","type":"text","text":"Враги","x":-680,"y":-90,"width":250,"height":60,"color":"5"},
+		{"id":"a31fc2a3ee0734b4","type":"text","text":"Подключение сплеш атаки","x":-300,"y":83,"width":250,"height":60,"color":"4"},
+		{"id":"de7ec726ca41af5a","type":"text","text":"Проверка сплеш атаки","x":-300,"y":183,"width":250,"height":60,"color":"2"},
+		{"id":"bd15c5355a60d60e","type":"text","text":"Разработать систему сплеш атаки","x":-300,"y":283,"width":250,"height":60,"color":"4"},
+		{"id":"c7897eddbb08a1ca","type":"text","text":"Проработка системы сплеш атаки","x":-300,"y":383,"width":250,"height":60,"color":"1"},
+		{"id":"f49ae0dc36be0486","type":"text","text":"Сплеш атака","x":-300,"y":-14,"width":250,"height":60,"color":"5"},
+		{"id":"74a5576c626b6f44","type":"text","text":"Проверка снаряда","x":-300,"y":-360,"width":250,"height":60,"color":"2"},
+		{"id":"42a83beb67026ab1","type":"text","text":"Подключить систему запуска снаряда","x":-300,"y":-260,"width":250,"height":60,"color":"4"},
+		{"id":"4159ee7eaff18d65","type":"text","text":"Дальняя атака","x":-300,"y":-160,"width":250,"height":60,"color":"5"},
+		{"id":"89dd3fd9c55838d0","type":"text","text":"Доработка конфигурации","x":100,"y":-100,"width":250,"height":80,"color":"5"},
+		{"id":"98342d87e8e8e1f3","type":"text","text":"Проработка обновлённой системы конфигурации","x":100,"y":180,"width":250,"height":110,"color":"1"},
+		{"id":"89a24902a38dd8d1","type":"text","text":"Разработка обновлённой системы","x":100,"y":83,"width":250,"height":60,"color":"2"}
+	],
+	"edges":[
+		{"id":"1d6269dc5c981b98","fromNode":"804c79a713c00275","fromSide":"right","toNode":"4159ee7eaff18d65","toSide":"left","color":"5"},
+		{"id":"62529d5716ea9fcd","fromNode":"42a83beb67026ab1","fromSide":"bottom","toNode":"4159ee7eaff18d65","toSide":"top","color":"4"},
+		{"id":"53e518d12721103a","fromNode":"74a5576c626b6f44","fromSide":"bottom","toNode":"42a83beb67026ab1","toSide":"top","color":"2"},
+		{"id":"e534ad4e6c928c6d","fromNode":"804c79a713c00275","fromSide":"right","toNode":"f49ae0dc36be0486","toSide":"left","color":"5"},
+		{"id":"526c7123366097da","fromNode":"a31fc2a3ee0734b4","fromSide":"top","toNode":"f49ae0dc36be0486","toSide":"bottom","color":"4"},
+		{"id":"11a6d432adc20d9a","fromNode":"f49ae0dc36be0486","fromSide":"right","toNode":"89dd3fd9c55838d0","toSide":"left","color":"5"},
+		{"id":"1215a9fd6a7e1b90","fromNode":"4159ee7eaff18d65","fromSide":"right","toNode":"89dd3fd9c55838d0","toSide":"left","color":"5"},
+		{"id":"7062159376ea8a1f","fromNode":"c7897eddbb08a1ca","fromSide":"top","toNode":"bd15c5355a60d60e","toSide":"bottom","color":"1"},
+		{"id":"1a64d6eda734bf36","fromNode":"bd15c5355a60d60e","fromSide":"top","toNode":"de7ec726ca41af5a","toSide":"bottom","color":"4"},
+		{"id":"e0a52c07eacdc6a5","fromNode":"de7ec726ca41af5a","fromSide":"top","toNode":"a31fc2a3ee0734b4","toSide":"bottom","color":"2"},
+		{"id":"0afe33c8435bbba5","fromNode":"89a24902a38dd8d1","fromSide":"top","toNode":"89dd3fd9c55838d0","toSide":"bottom","color":"2"},
+		{"id":"eb5a725b4d06ef4c","fromNode":"98342d87e8e8e1f3","fromSide":"top","toNode":"89a24902a38dd8d1","toSide":"bottom","color":"1"}
+	]
+}

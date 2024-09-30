@@ -1,0 +1,27 @@
+{
+	"nodes":[
+		{"id":"103edf4aa01375a7","type":"text","text":"Доработка персонажа","x":-540,"y":-100,"width":240,"height":60,"color":"5"},
+		{"id":"a948f2b82f8f1b5b","type":"text","text":"Исправление передвижения","x":-200,"y":-100,"width":250,"height":60,"color":"5"},
+		{"id":"182603b0868e045d","type":"text","text":"Добавить перемещение на WASD","x":-340,"y":-263,"width":250,"height":60,"color":"4"},
+		{"id":"4565fb3f2173366a","type":"text","text":"Добавить флаг типа управления и его проверку","x":-60,"y":-300,"width":250,"height":97,"color":"4"},
+		{"id":"871c3752264f64d2","type":"text","text":"Исправление атаки","x":140,"y":-100,"width":250,"height":60,"color":"5"},
+		{"id":"00863237b1e6828a","type":"text","text":"Сделать направление атаки через мышку","x":140,"y":0,"width":250,"height":60,"color":"4"},
+		{"id":"7f1382ed8412994c","type":"text","text":"Разработать систему секторного удара","x":140,"y":100,"width":250,"height":60,"color":"4"},
+		{"id":"2e6fa2baa257a98d","type":"text","text":"Проработать систему секторной атаки","x":140,"y":200,"width":250,"height":60,"color":"1"},
+		{"id":"840fb586848e9df8","x":480,"y":-100,"width":250,"height":60,"color":"5","type":"text","text":"Исправление организации скрипта"},
+		{"id":"ebb1bf88d109c49f","x":480,"y":0,"width":250,"height":60,"color":"2","type":"text","text":"Инкапсулировать данные"},
+		{"id":"0886058266e1cea1","x":480,"y":100,"width":250,"height":60,"color":"2","type":"text","text":"Привести к код к заверенному стилю"}
+	],
+	"edges":[
+		{"id":"6688863bc5e008e5","fromNode":"103edf4aa01375a7","fromSide":"right","toNode":"a948f2b82f8f1b5b","toSide":"left","color":"5"},
+		{"id":"a07ae7a8fb53eff8","fromNode":"a948f2b82f8f1b5b","fromSide":"right","toNode":"871c3752264f64d2","toSide":"left","color":"5"},
+		{"id":"111d6532b7cd1dcf","fromNode":"182603b0868e045d","fromSide":"bottom","toNode":"a948f2b82f8f1b5b","toSide":"top","color":"4"},
+		{"id":"7c3ba5a292ce55a9","fromNode":"4565fb3f2173366a","fromSide":"bottom","toNode":"a948f2b82f8f1b5b","toSide":"top","color":"4"},
+		{"id":"875fd30d8a4d087f","fromNode":"00863237b1e6828a","fromSide":"top","toNode":"871c3752264f64d2","toSide":"bottom","color":"4"},
+		{"id":"6e29f458bc8b348c","fromNode":"2e6fa2baa257a98d","fromSide":"top","toNode":"7f1382ed8412994c","toSide":"bottom","color":"1"},
+		{"id":"04f06db0bf168ebc","fromNode":"7f1382ed8412994c","fromSide":"top","toNode":"00863237b1e6828a","toSide":"bottom","color":"4"},
+		{"id":"acb57ba00c87fcaf","fromNode":"871c3752264f64d2","fromSide":"right","toNode":"840fb586848e9df8","toSide":"left","color":"5"},
+		{"id":"cea6874ea4fd3140","fromNode":"ebb1bf88d109c49f","fromSide":"top","toNode":"840fb586848e9df8","toSide":"bottom","color":"2"},
+		{"id":"1c587ee426f52f38","fromNode":"0886058266e1cea1","fromSide":"top","toNode":"ebb1bf88d109c49f","toSide":"bottom","color":"2"}
+	]
+}
