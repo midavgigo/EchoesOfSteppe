@@ -1,0 +1,11 @@
+{
+	"nodes":[
+		{"id":"70e934b3657a1993","type":"text","text":"Враги","x":-407,"y":-94,"width":250,"height":60,"color":"5"},
+		{"id":"6b2b20b2536d892a","type":"text","text":"Доработка персонажа","x":-100,"y":-94,"width":250,"height":60,"color":"5"},
+		{"id":"e1c3c706562da6c5","type":"text","text":"Уровни","x":220,"y":-94,"width":250,"height":60,"color":"5"}
+	],
+	"edges":[
+		{"id":"eb6264b9d3bf4673","fromNode":"70e934b3657a1993","fromSide":"right","toNode":"6b2b20b2536d892a","toSide":"left","color":"5"},
+		{"id":"b3ec895da1bfd631","fromNode":"6b2b20b2536d892a","fromSide":"right","toNode":"e1c3c706562da6c5","toSide":"left","color":"5"}
+	]
+}
