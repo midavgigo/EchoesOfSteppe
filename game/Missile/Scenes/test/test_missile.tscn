@@ -14,11 +14,11 @@ radius = 15.0333
 metadata/hit_handle = true
 metadata/timeoff_handle = true
 metadata/speedoff_handle = true
-metadata/life_time = 5000
-metadata/controller = ExtResource("2_pdkk3")
 metadata/packed = true
+metadata/life_time = 5000
 metadata/damage = 0.1
 metadata/package = ExtResource("2_yhtju")
+metadata/controller = ExtResource("2_pdkk3")
 
 [node name="Sprite2D" type="Sprite2D" parent="Missile"]
 texture = ExtResource("4_1dqms")
