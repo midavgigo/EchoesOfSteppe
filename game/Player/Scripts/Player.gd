@@ -73,8 +73,9 @@ func hit():
 func shoot():
 	var mouse = get_global_mouse_position()
 	var spos = position
-	var missile = Missile.instantiate().get_child(0)
-	missile.initialize((mouse-spos).limit_length(10))
+	var missile = Missile.instantiate()
+	missile.get_child(0).initialize((mouse-spos).limit_length(10))
+	missile.position = position
 	get_tree().root.add_child(missile)
 
 func player_process(delta):
