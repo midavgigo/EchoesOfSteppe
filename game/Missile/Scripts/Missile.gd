@@ -20,13 +20,15 @@ var time_left = 0
 
 func initialize(speed: Vector2):
 	self.speed = speed 
+
+func _ready():
 	controller = controller.new(self)
 
 func _process(delta):
 	var past_speed = speed
 	var past_position = position
 	controller.process(delta)
-	move_and_collide(speed*delta)
+	var res = move_and_collide(speed*delta)
 	if speed.length() <= MIN_SPEED:
 		controller.speedoff(past_speed, past_position)
 	if timeoff_handle and time_left < life_time:
