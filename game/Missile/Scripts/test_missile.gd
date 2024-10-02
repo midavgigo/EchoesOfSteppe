@@ -8,19 +8,21 @@ class TestMissile:
 		missile.speed = Vector2(1, 1)
 	
 	func process(delta):
-		pass
+		missile.speed -= missile.speed*delta/2
 	
-	func speedoff():
-		pass
+	func speedoff(past_speed, past_position):
+		missile.destroy()
+		print("ОШИБКА СТОП СКОРОСТЬ")
 	
 	func timeoff():
-		pass
+		missile.destroy()
+		print("ОШИБКА СТОП ВРЕМЯ")
 		
 	func body_entered(body, is_player):
-		pass
+		print("ХДЫЩ")
 	
 	func body_exited(body, is_player):
-		pass
+		print("ВЫХДЫЩ")
 		
 	func destroy():
-		pass
+		print("о нееееет")

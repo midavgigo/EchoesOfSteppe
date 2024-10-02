@@ -1,5 +1,6 @@
 extends Area2D
 
+var is_player_owner: bool
 @onready var hit_handle			= get_meta("hit_handle")
 @onready var timeoff_handle		= get_meta("timeoff_handle")
 @onready var speedoff_handle	= get_meta("speedoff_handle")
@@ -14,12 +15,13 @@ var damage_type					= "weapon"
 @onready var sprite				= ($AnimatedSprite2D if get_meta("animated") else $Sprite2D)
 
 var speed: Vector2 				
-const MIN_SPEED 				= 0.1
+const MIN_SPEED 				= 10
 
 var time_left = 0
 
-func initialize(speed: Vector2):
-	self.speed = speed 
+func initialize(speed: Vector2, is_player_owner: bool):
+	self.speed 				= speed 
+	self.is_player_owner 	= is_player_owner
 
 func _ready():
 	controller = controller.new(self)
@@ -34,15 +36,14 @@ func _process(delta):
 		controller.speedoff(past_speed, past_position)
 	if timeoff_handle and time_left < life_time:
 		time_left += delta
-		if time_left >= life_time:
+		if time_left*1000 >= life_time:
 			controller.timeoff()
 
 func _on_body_entered(body):
 	if hit_handle:
-		var is_player = false
-		if body.is_in_group("player"):
+		var is_player = body.is_in_group("player")
+		if is_player && not is_player_owner:
 			body.set_hit(damage, damage_type)
-			is_player = true
 		controller.body_entered(body, is_player)
 
 
@@ -52,7 +53,7 @@ func _on_body_exited(body):
 
 func spawn():
 	if packed:
-		add_child(package.instantiate())
+		get_tree().root.add_child(package.instantiate())
 
 func destroy():
 	if packed:

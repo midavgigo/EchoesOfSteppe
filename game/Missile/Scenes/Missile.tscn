@@ -14,3 +14,6 @@ metadata/life_time = 0
 metadata/damage = 0.0
 metadata/package = SubResource("Resource_y5k4h")
 metadata/controller = ExtResource("1_rkalo")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

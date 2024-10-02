@@ -74,9 +74,12 @@ func shoot():
 	var mouse = get_global_mouse_position()
 	var spos = position
 	var missile = Missile.instantiate()
-	missile.get_child(0).speed = ((mouse-spos).limit_length(10))
 	missile.position = position
 	get_tree().root.add_child(missile)
+	for i in get_tree().root.get_children():
+		if i == missile:
+			i.get_child(0).initialize((((mouse-spos)*300).limit_length(300)), true)
+			break
 
 func player_process(delta):
 	var x = Input.get_action_strength("player_right")-Input.get_action_strength("player_left")
