@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://cyywg334u43c4"]
+
+[ext_resource type="Script" path="res://Missile/Scripts/Missile.gd" id="1_rkalo"]
+
+[sub_resource type="Resource" id="Resource_y5k4h"]
+
+[node name="Missile" type="Area2D"]
+script = ExtResource("1_rkalo")
+metadata/hit_handle = false
+metadata/timeoff_handle = false
+metadata/speedoff_handle = false
+metadata/packed = false
+metadata/life_time = 0
+metadata/damage = 0.0
+metadata/package = SubResource("Resource_y5k4h")
+metadata/controller = ExtResource("1_rkalo")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
