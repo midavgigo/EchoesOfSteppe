@@ -29,7 +29,7 @@ func _ready():
 
 func _process(delta):
 	block_controller.process(delta)
-	if can_action && Input.is_action_just_pressed("action"):
+	if can_action && player.is_player_action():
 		block_controller.action(player)
 
 func _on_entered(body):

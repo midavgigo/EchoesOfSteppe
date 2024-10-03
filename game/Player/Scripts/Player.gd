@@ -35,6 +35,9 @@ var animation_status = AnimationStatus.STAND
 @onready var weapon_anim = $Area2D/WeaponAnimation
 @onready var area = $Area2D
 
+func is_dead():
+	return player.health <= 0.001
+
 #funcs
 func analyze_anim():
 	var temp = animation_status
@@ -84,13 +87,15 @@ func shoot():
 func player_process(delta):
 	var x = Input.get_action_strength("player_right")-Input.get_action_strength("player_left")
 	var y = Input.get_action_strength("player_down")-Input.get_action_strength("player_up")
-	if not hitting and not(x==0 and y==0):
-		area.rotate(round(atan2(y, x)/PI*2)*PI/2 - area.rotation)
+	if not hitting:
+		var mouse_dir = get_global_mouse_position()-position
+		area.rotate(atan2(mouse_dir.y, mouse_dir.x)- area.rotation)
 	player.set_joy(x, y)
 	player.calc(delta*10)
-	if Input.is_action_just_pressed("hit"):
+	if Input.is_action_just_pressed("primary_weapon"):
 		hit()
-	if Input.is_action_just_pressed("shoot"):
+	if Input.is_action_just_pressed("secondary_weapon"):
+		#TODO: Переименовать функцию и сделать проверку типа атаки
 		shoot()
 	velocity = player.get_velocity()
 	move_and_slide()
@@ -135,7 +140,7 @@ func _process(delta):
 			DebugType.EQUIPMENT:
 				debug_label.text = equipment.debug()
 	hp_front.scale.x = minf(1-player.health, 1)
-	if player.health > 0.001:
+	if !is_dead():
 		player_process(delta)
 
 
@@ -149,6 +154,8 @@ func _on_area_2d_body_entered(body):
 	if body.is_in_group("hittable") and not hitting:
 			enemys.append(body)
 
-
 func _on_area_2d_body_exited(body):
 	enemys.erase(body)
+
+func is_player_action():
+	return !is_dead() && Input.is_action_just_pressed("action")
