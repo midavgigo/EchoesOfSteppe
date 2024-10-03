@@ -17,17 +17,21 @@ enum DebugType{
 	WEAPON,
 	EQUIPMENT
 }
+#consts
+const	DODGE_LIMIT			= 125
 #vars
-var player
-var weapon
-var equipment
-var PLAYER_NAME = "test_player"
-var EQUIPMENT_NAME = "test_equipment"
-var WEAPON_NAME = "test_weapon"
-var hitting = false
-var enemys = []
-var debug_type = DebugType.PLAYER
-var animation_status = AnimationStatus.STAND
+var 	player
+var 	weapon
+var 	equipment
+var 	PLAYER_NAME 		= "test_player"
+var 	EQUIPMENT_NAME 		= "test_equipment"
+var 	WEAPON_NAME 		= "test_weapon"
+var 	hitting 			= false
+var		dodging				= false
+var		dodging_time		= 0
+var 	enemys 				= []
+var 	debug_type 			= DebugType.PLAYER
+var 	animation_status 	= AnimationStatus.STAND
 #nodes
 @onready var debug_label = $DebugMessage
 @onready var animation = $Animation
@@ -35,10 +39,10 @@ var animation_status = AnimationStatus.STAND
 @onready var weapon_anim = $Area2D/WeaponAnimation
 @onready var area = $Area2D
 
+#funcs
 func is_dead():
 	return player.health <= 0.001
 
-#funcs
 func analyze_anim():
 	var temp = animation_status
 	if velocity.length() < 30:
@@ -84,20 +88,33 @@ func shoot():
 			i.get_child(0).initialize((((mouse-spos)*300).limit_length(300)), true)
 			break
 
+func dodge():
+	dodging = true
+	
 func player_process(delta):
+	if dodging:
+		dodging_time += delta*1000
+	if dodging_time >= DODGE_LIMIT:
+		dodging = false
+		dodging_time = 0
 	var x = Input.get_action_strength("player_right")-Input.get_action_strength("player_left")
 	var y = Input.get_action_strength("player_down")-Input.get_action_strength("player_up")
 	if not hitting:
 		var mouse_dir = get_global_mouse_position()-position
 		area.rotate(atan2(mouse_dir.y, mouse_dir.x)- area.rotation)
-	player.set_joy(x, y)
+	if not dodging:
+		player.set_joy(x, y)
 	player.calc(delta*10)
 	if Input.is_action_just_pressed("primary_weapon"):
 		hit()
 	if Input.is_action_just_pressed("secondary_weapon"):
 		#TODO: Переименовать функцию и сделать проверку типа атаки
 		shoot()
+	if Input.is_action_just_pressed("dodge"):
+		dodge()
 	velocity = player.get_velocity()
+	if dodging:
+		velocity *= 10
 	move_and_slide()
 
 func set_hit(damage, type):
@@ -119,7 +136,6 @@ func _ready():
 	animation.play("Stand")
 	weapon_anim.sprite_frames = load("res://Player/Animations/"+weapon.type+".tres")
 	weapon_anim.set_speed_scale(weapon.speed/weapon_anim.sprite_frames.get_animation_speed("default")*weapon.speed_q)
-
 
 func _process(delta):
 	analyze_anim()
@@ -143,12 +159,9 @@ func _process(delta):
 	if !is_dead():
 		player_process(delta)
 
-
-
 func _on_weapon_animation_animation_finished():
 	weapon_anim.visible = false
 	hitting = false
-
 
 func _on_area_2d_body_entered(body):
 	if body.is_in_group("hittable") and not hitting:
