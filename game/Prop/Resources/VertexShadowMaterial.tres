@@ -1,0 +1,6 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://ci6b3vupxvlgi"]
+
+[ext_resource type="Shader" path="res://Prop/Shaders/vertex_shadow.gdshader" id="1_1drtt"]
+
+[resource]
+shader = ExtResource("1_1drtt")

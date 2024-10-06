@@ -1,0 +1,8 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://di3vcofmladoj"]
+
+[ext_resource type="Shader" path="res://Prop/Shaders/shadow.gdshader" id="1_ayari"]
+[ext_resource type="Texture2D" uid="uid://vrlbws33y8ny" path="res://Prop/Resources/shadow_gradient.tres" id="2_ftgxt"]
+
+[resource]
+shader = ExtResource("1_ayari")
+shader_parameter/gradient = ExtResource("2_ftgxt")
