@@ -33,9 +33,9 @@ var 	enemys 				= []
 var 	debug_type 			= DebugType.PLAYER
 var 	animation_status 	= AnimationStatus.STAND
 #nodes
-@onready var debug_label = $DebugMessage
+@onready var debug_label = $PlayerHud/DebugMessage
 @onready var animation = $Animation
-@onready var hp_front = $HpFront
+@onready var hpBar = $PlayerHud/pHpBar
 @onready var weapon_anim = $Area2D/WeaponAnimation
 @onready var area = $Area2D
 
@@ -85,7 +85,7 @@ func shoot():
 	get_tree().root.add_child(missile)
 	for i in get_tree().root.get_children():
 		if i == missile:
-			i.get_child(0).initialize((((mouse-spos)*300).limit_length(300)), true)
+			i.get_child(0).initialize((((mouse-spos)*300).limit_length(300)), false)
 			break
 
 func dodge():
@@ -125,6 +125,7 @@ func set_hit(damage, type):
 			player.health -= damage*equipment.beast
 		"spirit":
 			player.health -= damage*equipment.spirit
+	hpBar.set_hp(player.health)
 
 #sysfuncs
 func _ready():
@@ -150,12 +151,11 @@ func _process(delta):
 	if debug_full:
 		match debug_type:
 			DebugType.PLAYER:
-				debug_label.text = player.debug()
+				debug_label.text = player.debug() + "\nposition: "+str(position)
 			DebugType.WEAPON:
 				debug_label.text = weapon.debug()
 			DebugType.EQUIPMENT:
 				debug_label.text = equipment.debug()
-	hp_front.scale.x = minf(1-player.health, 1)
 	if !is_dead():
 		player_process(delta)
 

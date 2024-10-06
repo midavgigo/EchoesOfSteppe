@@ -18,7 +18,7 @@ class Player:
 				"\nattack: "+str(attack)+\
 				"\ndodge_type: "+dodge_type+\
 				"\nacceleration: "+str(acceleration)+\
-				"\nvelocity: "+str(velocity)+"\n"
+				"\nvelocity: "+str(velocity)
 	
 	func _init(name):
 		self.name = name

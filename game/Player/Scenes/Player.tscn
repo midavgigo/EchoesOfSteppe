@@ -1,8 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://boh5duax33f63"]
+[gd_scene load_steps=5 format=3 uid="uid://boh5duax33f63"]
 
 [ext_resource type="Script" path="res://Player/Scripts/Player.gd" id="1_mqfyf"]
-[ext_resource type="Texture2D" uid="uid://7g5i8mntmyj5" path="res://Player/Sprites/test_player/HPBar/back.png" id="2_ngkfo"]
-[ext_resource type="Texture2D" uid="uid://pbm2pgrf7pk3" path="res://Player/Sprites/test_player/HPBar/front.png" id="3_upwhw"]
+[ext_resource type="PackedScene" uid="uid://c2p28k2aao7jl" path="res://HUD/Scenes/PlayerHUD.tscn" id="2_bw7mo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h2re0"]
 size = Vector2(50, 50)
@@ -23,26 +22,6 @@ shape = SubResource("RectangleShape2D_h2re0")
 scale = Vector2(1, 0.5)
 animation = &""
 
-[node name="DebugMessage" type="Label" parent="."]
-offset_left = -16.0
-offset_top = -16.0
-offset_right = 24.0
-offset_bottom = 7.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="HpBack" type="Sprite2D" parent="."]
-position = Vector2(0, -64)
-texture = ExtResource("2_ngkfo")
-
-[node name="HpFront" type="Sprite2D" parent="."]
-position = Vector2(50, -64)
-scale = Vector2(1e-05, 1)
-texture = ExtResource("3_upwhw")
-centered = false
-offset = Vector2(-100, -10)
-
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="WeaponAnimation" type="AnimatedSprite2D" parent="Area2D"]
@@ -57,6 +36,8 @@ shape = SubResource("RectangleShape2D_3d0u6")
 [node name="Camera2D" type="Camera2D" parent="."]
 position_smoothing_enabled = true
 position_smoothing_speed = 10.0
+
+[node name="PlayerHud" parent="." instance=ExtResource("2_bw7mo")]
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
