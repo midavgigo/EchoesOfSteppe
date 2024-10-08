@@ -1,6 +1,7 @@
 extends ConfReader
 
 const PATHS = [
+	"Item/Configurations/",
 	"Enemy/Configurations/",
 	"Missile/Configurations/",
 	"Player/Configurations/",
@@ -9,6 +10,7 @@ const PATHS = [
 ];
 
 enum Roots{
+	ITEM,
 	ENEMY,
 	MISSILE,
 	PLAYER,

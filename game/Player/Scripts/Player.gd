@@ -3,8 +3,6 @@ extends CharacterBody2D
 const PlayerClass 		= preload("res://Player/Scripts/PlayerClass.gd")
 const WeaponClass 		= preload("res://Player/Scripts/WeaponClass.gd")
 const EquipmentClass 	= preload("res://Player/Scripts/EquipmentClass.gd")
-#scenes
-const Missile			= preload("res://Missile/Scenes/test/test_missile.tscn")
 #enums
 enum AnimationStatus{
 	STAND,
@@ -23,9 +21,7 @@ const	DODGE_LIMIT			= 125
 var 	player
 var 	weapon
 var 	equipment
-var 	PLAYER_NAME 		= "test_player"
-var 	EQUIPMENT_NAME 		= "test_equipment"
-var 	WEAPON_NAME 		= "test_weapon"
+var 	PLAYER_NAME 		= "main_player"
 var 	hitting 			= false
 var		dodging				= false
 var		dodging_time		= 0
@@ -80,12 +76,10 @@ func hit():
 func shoot():
 	var mouse = get_global_mouse_position()
 	var spos = position
-	var missile = Missile.instantiate()
-	missile.position = position
-	get_tree().root.add_child(missile)
-	for i in get_tree().root.get_children():
-		if i == missile:
-			i.get_child(0).initialize((((mouse-spos)*1000).limit_length(1000)), false)
+	if spos == mouse:
+		return
+	var mdir = mouse - spos
+	mdir = (mdir/mdir.length()).limit_length(1)
 
 func dodge():
 	dodging = true

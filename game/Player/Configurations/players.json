@@ -1,5 +1,5 @@
 {
-	"main_player":{
+	"demo_player":{
 		"health": 1.0, 
 		"stamina": 1.0, 
 		"walk": {
@@ -10,6 +10,14 @@
 			"force": 1.0, 
 			"speed": 8 
 		},
-		"dodge_type": "rolling" 
+		"dodge_type": "rolling",
+		"items":{
+			"armor": "leather_armor",
+			"pweapon": "rusty_sword",
+			"sweapon": "tar_hand"
+			"slots":{
+				
+			}
+		}
 	}
 }

@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://m5vj3ukb38lf"]
+
+[ext_resource type="PackedScene" uid="uid://cyywg334u43c4" path="res://Missile/Scenes/Missile.tscn" id="1_6qp66"]
+[ext_resource type="Script" path="res://Missile/Scripts/tar.gd" id="2_3csik"]
+[ext_resource type="Texture2D" uid="uid://ddalcbfg5w7ib" path="res://Missile/Sprites/test_missile.png" id="3_ysn1m"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_s8ra1"]
+radius = 15.0333
+
+[node name="TestMissile" type="Node2D"]
+
+[node name="Missile" parent="." instance=ExtResource("1_6qp66")]
+metadata/hit_handle = true
+metadata/life_time = 5000
+metadata/controller = ExtResource("2_3csik")
+
+[node name="Sprite2D" type="Sprite2D" parent="Missile"]
+texture = ExtResource("3_ysn1m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Missile"]
+shape = SubResource("CircleShape2D_s8ra1")

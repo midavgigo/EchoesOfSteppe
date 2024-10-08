@@ -1,0 +1,27 @@
+{
+	"rusty_sword":{
+		"is_primary": "true",
+		"material": "rusty_iron",
+		"type": "sword",
+		"damage": 0.5,
+		"delay": 330,
+		"dict":{
+			"RU": {
+				"name": "Ржавый меч",
+				"desc": "В прошлом, возможно, хороший меч."
+			}
+		}
+	},
+	"tar_hand":{
+		"is_primary": "false",
+		"material": "tar",
+		"type": "throwing",
+		"delay": 660,
+		"dict":{
+			"RU": {
+				"name": "Смолистая рука",
+				"desc": "Ваша рука может выделять смолу, она очень липкая и горючая."
+			}
+		}
+	}
+}

@@ -1,0 +1,13 @@
+{
+	"nodes":[
+		{"id":"3bd88a0917f0eb56","x":-160,"y":-170,"width":250,"height":60,"type":"text","text":"Получение предмета\n"},
+		{"id":"469f455560ed7dd2","x":-160,"y":-80,"width":250,"height":60,"type":"text","text":"Инициализация предмета у игрока"},
+		{"id":"6b253e09de470697","x":180,"y":-80,"width":250,"height":60,"type":"text","text":"init(player)"},
+		{"id":"138c7b6e2f5b6ea8","x":-160,"y":20,"width":250,"height":69,"type":"text","text":"Переопределение функций "}
+	],
+	"edges":[
+		{"id":"fea56669878004e4","fromNode":"3bd88a0917f0eb56","fromSide":"bottom","toNode":"469f455560ed7dd2","toSide":"top"},
+		{"id":"b6a2a010bbe43057","fromNode":"469f455560ed7dd2","fromSide":"right","toNode":"6b253e09de470697","toSide":"left"},
+		{"id":"6e1174fa6370f249","fromNode":"469f455560ed7dd2","fromSide":"bottom","toNode":"138c7b6e2f5b6ea8","toSide":"top"}
+	]
+}
