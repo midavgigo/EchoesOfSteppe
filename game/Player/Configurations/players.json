@@ -1,5 +1,5 @@
 {
-	"test_player":{
+	"main_player":{
 		"health": 1.0, 
 		"stamina": 1.0, 
 		"walk": {

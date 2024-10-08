@@ -1,5 +1,6 @@
 extends WeaponClass
 
+const ConfReader = preload("res://Tools/Scripts/ConfReader.gd") 
 
 class WeaponClass:
 	var name
@@ -21,23 +22,4 @@ class WeaponClass:
 	
 	func _init(name):
 		self.name = name
-		var file = FileAccess.open("res://Player/Configurations/test_weapons.json", FileAccess.READ)
-		var dict = JSON.parse_string(file.get_as_text())
-		match typeof(dict):
-			TYPE_DICTIONARY:
-				material = dict[name]["material"]
-				type = dict[name]["type"]
-				speed_q = dict[name]["speed_q"]
-				damage = dict[name]["damage"]
-		file = FileAccess.open("res://Player/Configurations/weapon_types.json", FileAccess.READ)
-		dict = JSON.parse_string(file.get_as_text())
-		match typeof(dict):
-			TYPE_DICTIONARY:
-				speed = dict[type]["speed"]
-		file = FileAccess.open("res://Player/Configurations/weapon_materials.json", FileAccess.READ)
-		dict = JSON.parse_string(file.get_as_text())
-		match typeof(dict):
-			TYPE_DICTIONARY:
-				flesh = dict[material]["flesh"]
-				armor = dict[material]["armor"]
-				spirit = dict[material]["spirit"]
+		var cf_reader = ConfReader.new(ConfReader.Roots.PLAYER, "weapons", "") 

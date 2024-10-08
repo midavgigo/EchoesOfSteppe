@@ -1,7 +1,10 @@
 {
-	"test_material":{
-		"armor": 1,
-		"flesh": 1,
-		"spirit": 1
+	"rusty_iron":{
+		"armor": 0.1,
+		"flesh": 0.5,
+		"spirit": 0
+	},
+	"tar":{
+		"no_damage": "true"
 	}
 }

@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://dh4ppbpklf2wb"]
 
 [ext_resource type="PackedScene" uid="uid://boh5duax33f63" path="res://Player/Scenes/Player.tscn" id="1_0kopf"]
-[ext_resource type="Texture2D" uid="uid://bn6ls2yo8wclf" path="res://Prop/Sprites/Floors/ArenaFloor.png" id="2_8ib8d"]
-[ext_resource type="Texture2D" uid="uid://cqvtit6el37lu" path="res://Prop/Sprites/Blocks/Walls/ArenaWall.png" id="3_65k8c"]
+[ext_resource type="Texture2D" uid="uid://degy4cx17ghrb" path="res://Prop/Sprites/Floors/ArenaFloor.png" id="2_8ib8d"]
+[ext_resource type="Texture2D" uid="uid://xom7c4adn4en" path="res://Prop/Sprites/Blocks/Walls/ArenaWall.png" id="3_65k8c"]
 [ext_resource type="Material" uid="uid://di3vcofmladoj" path="res://Prop/Resources/ShadowMaterial.tres" id="3_ui2rb"]
 [ext_resource type="Material" uid="uid://ci6b3vupxvlgi" path="res://Prop/Resources/VertexShadowMaterial.tres" id="5_euybn"]
 

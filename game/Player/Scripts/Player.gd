@@ -85,8 +85,7 @@ func shoot():
 	get_tree().root.add_child(missile)
 	for i in get_tree().root.get_children():
 		if i == missile:
-			i.get_child(0).initialize((((mouse-spos)*300).limit_length(300)), false)
-			break
+			i.get_child(0).initialize((((mouse-spos)*1000).limit_length(1000)), false)
 
 func dodge():
 	dodging = true
@@ -105,9 +104,9 @@ func player_process(delta):
 	if not dodging:
 		player.set_joy(x, y)
 	player.calc(delta*10)
-	if Input.is_action_just_pressed("primary_weapon"):
+	if Input.is_action_pressed("primary_weapon"):
 		hit()
-	if Input.is_action_just_pressed("secondary_weapon"):
+	if Input.is_action_pressed("secondary_weapon"):
 		#TODO: Переименовать функцию и сделать проверку типа атаки
 		shoot()
 	if Input.is_action_just_pressed("dodge"):
