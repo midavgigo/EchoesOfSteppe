@@ -1,8 +1,8 @@
-extends TarHand
+extends Throwing
 
 const ConfReader = preload("res://Tools/Scripts/ConfReader.gd")
 
-class TarHand:
+class Throwing:
 	var player
 	# conf
 	var missile
@@ -17,18 +17,19 @@ class TarHand:
 		self.player	= player
 		
 		var reader	= ConfReader.new(ConfReader.Roots.ITEM, "weapon", name)
-		missile		= load("res://Missile/Scenes/"+reader.getField("material")+".tscn")
+		missile		= load("res://Missile/Scenes/"+reader.getField("missile")+".tscn")
 		delay		= reader.getFiel("delay")
-		is_primary		= reader.getField("is_primary")
+		is_primary	= reader.getField("is_primary")
 		
 	func process(delta):
 		if not can_shoot:
 			passed_time += delta*1000
 			if passed_time*(player.psq if is_primary else player.ssq) >= delay:
 				can_shoot = true
+				passed_time = 0
 	
-	func shoot(mdir):
-		mdir *= 1000
+	func attack():
+		var mdir = player.mdir()*1000
 		
 		var msl = self.missile.instantiate()
 		msl.position = player.positionv
@@ -37,5 +38,4 @@ class TarHand:
 		player.get_tree().root.get_children()[-1].initialize(mdir, false)
 		
 		can_shoot = false
-		passed_time = 0
 

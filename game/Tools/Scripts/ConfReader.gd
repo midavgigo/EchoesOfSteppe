@@ -39,6 +39,8 @@ class ConfReader:
 		var elems = path.split("/")
 		var el = self.dict.duplicate(true)
 		for i in elems:
+			if el == TYPE_NIL:
+				return TYPE_NIL
 			el = el[i]
 		var ret:String = el
 		if ret in ["true", "false"]:
@@ -48,6 +50,9 @@ class ConfReader:
 		if ret.is_valid_float():
 			return ret.to_float()
 		return ret
+	
+	func getDict():
+		return self.dict
 	
 #	func setField(value, path:String):
 #		var elems = path.split("/")

@@ -1,8 +1,6 @@
 extends CharacterBody2D
 #imports
 const PlayerClass 		= preload("res://Player/Scripts/PlayerClass.gd")
-const WeaponClass 		= preload("res://Player/Scripts/WeaponClass.gd")
-const EquipmentClass 	= preload("res://Player/Scripts/EquipmentClass.gd")
 #enums
 enum AnimationStatus{
 	STAND,
@@ -19,10 +17,9 @@ enum DebugType{
 const	DODGE_LIMIT			= 125
 #vars
 var 	player
-var 	weapon
-var 	equipment
 var 	PLAYER_NAME 		= "main_player"
 var 	hitting 			= false
+var		shooting			= false
 var		dodging				= false
 var		dodging_time		= 0
 var 	enemys 				= []
@@ -32,8 +29,12 @@ var 	animation_status 	= AnimationStatus.STAND
 @onready var debug_label = $PlayerHud/DebugMessage
 @onready var animation = $Animation
 @onready var hpBar = $PlayerHud/pHpBar
-@onready var weapon_anim = $Area2D/WeaponAnimation
-@onready var area = $Area2D
+@onready var weapon_anim = $PrimaryWeapon/WeaponAnimation
+@onready var pweapon_area = $PrimaryWeapon
+#inventory
+var primary
+var secondary
+var slots
 
 #funcs
 func is_dead():
@@ -58,29 +59,22 @@ func analyze_anim():
 				animation.play("Dead")
 	animation_status = temp
 
-func hit():
-	weapon_anim.visible = true
-	weapon_anim.play("default")
-	hitting = true
-	for i in enemys:
-		match i.get_resist():
-			"armor":
-				i.hit(weapon.damage*weapon.armor, weapon.material)
-			"flesh":
-				i.hit(weapon.damage*weapon.flesh, weapon.material)
-			"spirit":
-				i.hit(weapon.damage*weapon.spirit, weapon.material)
-			"none":
-				i.hit(weapon.damage, weapon.material)
-
-func shoot():
+func mdir():
 	var mouse = get_global_mouse_position()
 	var spos = position
 	if spos == mouse:
 		return
 	var mdir = mouse - spos
-	mdir = (mdir/mdir.length()).limit_length(1)
+	return (mdir/mdir.length()).limit_length(1)
 
+func hit():
+	player.weapon_anim.visible = true
+	player.weapon_anim.play("default")
+	player.hitting = true
+
+func shoot():
+	pass
+	
 func dodge():
 	dodging = true
 	
@@ -92,9 +86,6 @@ func player_process(delta):
 		dodging_time = 0
 	var x = Input.get_action_strength("player_right")-Input.get_action_strength("player_left")
 	var y = Input.get_action_strength("player_down")-Input.get_action_strength("player_up")
-	if not hitting:
-		var mouse_dir = get_global_mouse_position()-position
-		area.rotate(atan2(mouse_dir.y, mouse_dir.x)- area.rotation)
 	if not dodging:
 		player.set_joy(x, y)
 	player.calc(delta*10)
@@ -123,8 +114,6 @@ func set_hit(damage, type):
 #sysfuncs
 func _ready():
 	player = PlayerClass.new(PLAYER_NAME)
-	weapon = WeaponClass.new(WEAPON_NAME)
-	equipment = EquipmentClass.new(EQUIPMENT_NAME)
 	animation.sprite_frames = load("res://Player/Animations/"+PLAYER_NAME+".tres")
 	animation.animation = "Stand"
 	animation.play("Stand")
