@@ -1,46 +1,56 @@
 extends Player
 
+const ConfReader	= preload("res://Tools/Scripts/ConfReader.gd")
+const Movement		= preload("res://Tools/Scripts/Movement.gd")
+const Inventory		= preload("res://Player/Scripts/Inventory.gd")
+
+const PLAYER_STOP_COEF	= 13.5
+
 class Player:
+	# conf
 	var name
+	var movement
+	var max_health
+	var inventory
+	# vars
 	var health
-	var stamina
-	var walk
-	var attack
-	var dodge_type
 	var acceleration = Vector2()
 	var velocity = Vector2()
+	var player
 	
 	func debug():
-		return 	"name: "+name+\
-				"\nhealth: "+str(health)+\
-				"\nstamina: "+str(stamina)+\
-				"\nwalk: "+str(walk)+\
-				"\nattack: "+str(attack)+\
-				"\ndodge_type: "+dodge_type+\
-				"\nacceleration: "+str(acceleration)+\
-				"\nvelocity: "+str(velocity)
+		return 	"name: "			+name+\
+				"\nhealth: "		+str(health)+\
+				"\nmax health: "	+str(max_health)+\
+				"\nmovement: "		+str(movement)+\
+				"\nacceleration: "	+str(acceleration)+\
+				"\nvelocity: "		+str(velocity)
 	
-	func _init(name):
-		self.name = name
-		var file = FileAccess.open("res://Player/Configurations/test_players.json", FileAccess.READ)
-		var dict = JSON.parse_string(file.get_as_text())
-		match typeof(dict):
-			TYPE_DICTIONARY:
-				health = dict[name]["health"]
-				stamina = dict[name]["stamina"]
-				walk = dict[name]["walk"]
-				attack = dict[name]["attack"]
-				dodge_type = dict[name]["dodge_type"]
+	func _init(player, name):
+		self.player	= player
+		self.name	= name
+		
+		var reader	= ConfReader.new(ConfReader.Roots.PLAYER, "player", name)
+		health 		= reader.getField("health")
+		max_health	= health
+		movement 	= Movement.new(reader.getField("movement/speed"), \
+									reader.getField("movement/accel"))
+		inventory	= Inventory.new(player,\
+									reader.getField("items/armor"),\
+									reader.getField("items/pweapon"),\
+									reader.getField("items/sweapon"),\
+									reader.getField("items/slots")
+									)
 	
 	func set_joy(hor, ver):
-		acceleration.x = hor * walk["accel"]
-		acceleration.y = ver * walk["accel"]
+		acceleration.x = hor * movement.accel
+		acceleration.y = ver * movement.accel
 	
 	func calc(delta):
 		if acceleration.length() == 0:
-			acceleration = -velocity*13.5
+			acceleration = -velocity*PLAYER_STOP_COEF
 		velocity += acceleration*delta
-		velocity = velocity.limit_length(walk["speed"])
+		velocity = velocity.limit_length(movement.speed)
 			
 	func get_velocity():
 		return velocity

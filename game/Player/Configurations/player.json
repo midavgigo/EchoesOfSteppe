@@ -1,0 +1,15 @@
+{
+	"demo_player":{
+		"health": 1.0, 
+		"movement": {
+			"speed": 150, 
+			"accel": 562.5
+		},
+		"items":{
+			"armor": "leather_armor",
+			"pweapon": "rusty_sword",
+			"sweapon": "tar_hand",
+			"slots":"evaporating_step"
+		}
+	}
+}

@@ -9,7 +9,7 @@ class MaterialHandler:
 	func _init(name):
 		var reader	= ConfReader.new(ConfReader.Roots.ITEM, "weapon_materials", name)
 		var no_damage = reader.getField("no_damage")
-		if no_damage != TYPE_NIL && no_damage:
+		if no_damage != null && no_damage:
 			data = {
 				"armor": 	0,
 				"flesh": 	0,

@@ -39,10 +39,10 @@ class ConfReader:
 		var elems = path.split("/")
 		var el = self.dict.duplicate(true)
 		for i in elems:
-			if el == TYPE_NIL:
-				return TYPE_NIL
+			if not el.has(i):
+				return null
 			el = el[i]
-		var ret:String = el
+		var ret:String = str(el)
 		if ret in ["true", "false"]:
 			return ret == "true"
 		if ret.is_valid_int():

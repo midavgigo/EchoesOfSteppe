@@ -17,7 +17,7 @@ enum DebugType{
 const	DODGE_LIMIT			= 125
 #vars
 var 	player
-var 	PLAYER_NAME 		= "main_player"
+var 	PLAYER_NAME 		= "demo_player"
 var 	hitting 			= false
 var		shooting			= false
 var		dodging				= false
@@ -31,10 +31,7 @@ var 	animation_status 	= AnimationStatus.STAND
 @onready var hpBar = $PlayerHud/pHpBar
 @onready var weapon_anim = $PrimaryWeapon/WeaponAnimation
 @onready var pweapon_area = $PrimaryWeapon
-#inventory
-var primary
-var secondary
-var slots
+
 
 #funcs
 func is_dead():
@@ -104,22 +101,21 @@ func player_process(delta):
 func set_hit(damage, type):
 	match type:
 		"weapon":
-			player.health -= damage*equipment.weapon
+			player.health -= damage*player.armor.weapon
 		"beast":
-			player.health -= damage*equipment.beast
+			player.health -= damage*player.armor.beast
 		"spirit":
-			player.health -= damage*equipment.spirit
+			player.health -= damage*player.armor.spirit
 	hpBar.set_hp(player.health)
 
 #sysfuncs
 func _ready():
-	player = PlayerClass.new(PLAYER_NAME)
+	player = PlayerClass.new(self, PLAYER_NAME)
 	animation.sprite_frames = load("res://Player/Animations/"+PLAYER_NAME+".tres")
 	animation.animation = "Stand"
 	animation.play("Stand")
-	weapon_anim.sprite_frames = load("res://Player/Animations/"+weapon.type+".tres")
-	weapon_anim.set_speed_scale(weapon.speed/weapon_anim.sprite_frames.get_animation_speed("default")*weapon.speed_q)
-
+	weapon_anim.sprite_frames = load("res://Item/Animations/"+player.inventory.pweapon.type+".tres")
+	
 func _process(delta):
 	analyze_anim()
 	debug_label.text = ""
@@ -135,9 +131,9 @@ func _process(delta):
 			DebugType.PLAYER:
 				debug_label.text = player.debug() + "\nposition: "+str(position)
 			DebugType.WEAPON:
-				debug_label.text = weapon.debug()
+				debug_label.text = player.pweapon.debug()
 			DebugType.EQUIPMENT:
-				debug_label.text = equipment.debug()
+				debug_label.text = player.armor.debug()
 	if !is_dead():
 		player_process(delta)
 

@@ -18,7 +18,7 @@ class Throwing:
 		
 		var reader	= ConfReader.new(ConfReader.Roots.ITEM, "weapon", name)
 		missile		= load("res://Missile/Scenes/"+reader.getField("missile")+".tscn")
-		delay		= reader.getFiel("delay")
+		delay		= reader.getField("delay")
 		is_primary	= reader.getField("is_primary")
 		
 	func process(delta):
