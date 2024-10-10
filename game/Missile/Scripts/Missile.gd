@@ -32,7 +32,7 @@ func _process(delta):
 	controller.process(delta)
 	position = position + speed*delta
 	rotation = atan2(speed.y, speed.x)
-	if speed.length() <= MIN_SPEED:
+	if speedoff_handle and speed.length() <= MIN_SPEED:
 		controller.speedoff(past_speed, past_position)
 	if timeoff_handle and time_left < life_time:
 		time_left += delta
@@ -40,16 +40,16 @@ func _process(delta):
 			controller.timeoff()
 
 func _on_body_entered(body):
-	if hit_handle:
-		var is_player = body.is_in_group("player")
-		if is_player && not is_player_owner:
-			body.set_hit(damage, damage_type)
-		controller.body_entered(body, is_player)
-
+	var is_player = body.is_in_group("player")
+	var is_enemy  = body.is_in_group("hittable")
+	if is_player && not is_player_owner:
+		body.set_hit(damage, damage_type)
+	if is_enemy && is_player_owner:
+		body.set_hit(damage, damage_type)
+	controller.body_entered(body, is_player_owner, hit_handle && (is_enemy && is_player_owner || is_player && not is_player_owner || not is_enemy and not is_player))
 
 func _on_body_exited(body):
-	if hit_handle:
-		controller.body_exited(body, body.is_in_group("player"))
+	controller.body_exited(body, body.is_in_group("player"))
 
 func spawn():
 	if packed:

@@ -14,9 +14,11 @@ class Player:
 	var inventory
 	# vars
 	var health
-	var acceleration = Vector2()
-	var velocity = Vector2()
+	var acceleration	= Vector2()
+	var velocity		= Vector2()
 	var player
+	var psq				= 1
+	var ssq				= 1
 	
 	func debug():
 		return 	"name: "			+name+\
@@ -41,6 +43,8 @@ class Player:
 									reader.getField("items/sweapon"),\
 									reader.getField("items/slots")
 									)
+		player.pweapon_anim.sprite_frames = load("res://Item/Animations/"+inventory.pweapon.TYPE+".tres")
+		player.pweapon_anim.set_speed_scale(1000/inventory.pweapon.delay)
 	
 	func set_joy(hor, ver):
 		acceleration.x = hor * movement.accel

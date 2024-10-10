@@ -109,7 +109,7 @@ func _on_animated_sprite_2d_animation_finished():
 func get_resist():
 	return enemy.resist
 
-func hit(damage, material):
+func set_hit(damage, material):
 	enemy.health -= damage
 
 func _enemy_animation_end():

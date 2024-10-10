@@ -24,7 +24,7 @@ class Throwing:
 	func process(delta):
 		if not can_shoot:
 			passed_time += delta*1000
-			if passed_time*(player.psq if is_primary else player.ssq) >= delay:
+			if passed_time*(player.player.psq if is_primary else player.player.ssq) >= delay:
 				can_shoot = true
 				passed_time = 0
 	

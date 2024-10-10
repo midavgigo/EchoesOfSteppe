@@ -20,6 +20,7 @@ class Sword:
 		
 		var reader	= ConfReader.new(ConfReader.Roots.ITEM, "weapon", name)
 		is_primary	= reader.getField("is_primary")
+		delay		= reader.getField("delay")
 		material	= MaterialHandler.new(reader.getField("material"))
 	
 	func process(delta):

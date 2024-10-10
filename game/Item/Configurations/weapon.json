@@ -10,6 +10,6 @@
 		"is_primary": "false",
 		"missile": "tar",
 		"type": "throwing",
-		"delay": 2000
+		"delay": 5000
 	}
 }

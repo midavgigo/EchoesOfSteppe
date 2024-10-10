@@ -1,6 +1,6 @@
-extends TestMissile
+extends TarMissile
 
-class TestMissile:
+class TarMissile:
 	var missile
 	
 	func _init(missile):
@@ -18,7 +18,10 @@ class TestMissile:
 		missile.destroy()
 		print("ОШИБКА СТОП ВРЕМЯ")
 		
-	func body_entered(body, is_player):
+	func body_entered(body, is_player_owner, destroy_):
+		if destroy_:
+			missile.destroy()
+			return
 		print("ХДЫЩ")
 	
 	func body_exited(body, is_player):

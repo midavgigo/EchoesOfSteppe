@@ -29,13 +29,14 @@ var 	animation_status 	= AnimationStatus.STAND
 @onready var debug_label = $PlayerHud/DebugMessage
 @onready var animation = $Animation
 @onready var hpBar = $PlayerHud/pHpBar
-@onready var weapon_anim = $PrimaryWeapon/WeaponAnimation
+@onready var pweapon_anim = $PrimaryWeapon/WeaponAnimation
 @onready var pweapon_area = $PrimaryWeapon
 
 
 #funcs
 func is_dead():
 	return player.health <= 0.001
+	pweapon_anim.set_speed
 
 func analyze_anim():
 	var temp = animation_status
@@ -65,8 +66,8 @@ func mdir():
 	return (mdir/mdir.length()).limit_length(1)
 
 func primary_weapon():
-	weapon_anim.visible = true
-	weapon_anim.play("default")
+	pweapon_anim.visible = true
+	pweapon_anim.play("default")
 	hitting = true
 	player.inventory.pweapon.attack()
 
@@ -74,7 +75,8 @@ func secondary_weapon():
 	player.inventory.sweapon.attack()
 	
 func dodge():
-	dodging = true
+	if not dodging:
+		dodging = true
 	
 func player_process(delta):
 	var x = Input.get_action_strength("player_right")-Input.get_action_strength("player_left")
@@ -88,10 +90,8 @@ func player_process(delta):
 		secondary_weapon()
 	if Input.is_action_just_pressed("dodge"):
 		dodge()
-	player.inventory.process(delta)
 	velocity = player.get_velocity()
-	if dodging:
-		velocity *= 10
+	player.inventory.process(delta)
 	move_and_slide()
 
 func set_hit(damage, type):
@@ -110,8 +110,6 @@ func _ready():
 	animation.sprite_frames = load("res://Player/Animations/"+PLAYER_NAME+".tres")
 	animation.animation = "Stand"
 	animation.play("Stand")
-	weapon_anim.sprite_frames = load("res://Item/Animations/"+player.inventory.pweapon.TYPE+".tres")
-	
 func _process(delta):
 	analyze_anim()
 	debug_label.text = ""
@@ -134,7 +132,7 @@ func _process(delta):
 		player_process(delta)
 
 func _on_weapon_animation_animation_finished():
-	weapon_anim.visible = false
+	pweapon_anim.visible = false
 	hitting = false
 
 func _on_area_2d_body_entered(body):
