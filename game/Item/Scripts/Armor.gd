@@ -23,3 +23,4 @@ class Armor:
 		weapon		= reader.getField("weapon")
 		beast		= reader.getField("beast")
 		spirit		= reader.getField("spirit")
+	

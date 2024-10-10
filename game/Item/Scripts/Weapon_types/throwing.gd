@@ -29,13 +29,14 @@ class Throwing:
 				passed_time = 0
 	
 	func attack():
-		var mdir = player.mdir()*1000
-		
-		var msl = self.missile.instantiate()
-		msl.position = player.positionv
-		
-		player.get_tree().root.add_child(msl)
-		player.get_tree().root.get_children()[-1].initialize(mdir, false)
-		
-		can_shoot = false
+		if can_shoot:
+			var mdir = player.mdir()*1000
+			
+			var msl = self.missile.instantiate()
+			msl.position = player.position
+			
+			player.get_tree().root.add_child(msl)
+			player.get_tree().root.get_children()[-1].get_child(0).initialize(mdir, true)
+			
+			can_shoot = false
 

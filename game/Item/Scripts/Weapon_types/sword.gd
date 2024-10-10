@@ -4,6 +4,8 @@ const ConfReader		= preload("res://Tools/Scripts/ConfReader.gd")
 const MaterialHandler	= preload("res://Item/Scripts/MaterialHandler.gd")
 
 class Sword:
+	const TYPE = "sword"
+	
 	var player
 	
 	var is_primary

@@ -64,35 +64,31 @@ func mdir():
 	var mdir = mouse - spos
 	return (mdir/mdir.length()).limit_length(1)
 
-func hit():
-	player.weapon_anim.visible = true
-	player.weapon_anim.play("default")
-	player.hitting = true
+func primary_weapon():
+	weapon_anim.visible = true
+	weapon_anim.play("default")
+	hitting = true
+	player.inventory.pweapon.attack()
 
-func shoot():
-	pass
+func secondary_weapon():
+	player.inventory.sweapon.attack()
 	
 func dodge():
 	dodging = true
 	
 func player_process(delta):
-	if dodging:
-		dodging_time += delta*1000
-	if dodging_time >= DODGE_LIMIT:
-		dodging = false
-		dodging_time = 0
 	var x = Input.get_action_strength("player_right")-Input.get_action_strength("player_left")
 	var y = Input.get_action_strength("player_down")-Input.get_action_strength("player_up")
 	if not dodging:
 		player.set_joy(x, y)
 	player.calc(delta*10)
 	if Input.is_action_pressed("primary_weapon"):
-		hit()
+		primary_weapon()
 	if Input.is_action_pressed("secondary_weapon"):
-		#TODO: Переименовать функцию и сделать проверку типа атаки
-		shoot()
+		secondary_weapon()
 	if Input.is_action_just_pressed("dodge"):
 		dodge()
+	player.inventory.process(delta)
 	velocity = player.get_velocity()
 	if dodging:
 		velocity *= 10
@@ -101,11 +97,11 @@ func player_process(delta):
 func set_hit(damage, type):
 	match type:
 		"weapon":
-			player.health -= damage*player.armor.weapon
+			player.health -= damage*player.inventory.armor.weapon
 		"beast":
-			player.health -= damage*player.armor.beast
+			player.health -= damage*player.inventory.armor.beast
 		"spirit":
-			player.health -= damage*player.armor.spirit
+			player.health -= damage*player.inventory.armor.spirit
 	hpBar.set_hp(player.health)
 
 #sysfuncs
@@ -114,7 +110,7 @@ func _ready():
 	animation.sprite_frames = load("res://Player/Animations/"+PLAYER_NAME+".tres")
 	animation.animation = "Stand"
 	animation.play("Stand")
-	weapon_anim.sprite_frames = load("res://Item/Animations/"+player.inventory.pweapon.type+".tres")
+	weapon_anim.sprite_frames = load("res://Item/Animations/"+player.inventory.pweapon.TYPE+".tres")
 	
 func _process(delta):
 	analyze_anim()

@@ -1,26 +1,26 @@
 [gd_resource type="SpriteFrames" load_steps=5 format=3 uid="uid://ctsl3hhxr4v72"]
 
-[ext_resource type="Texture2D" uid="uid://c6mh8nqjfk7pf" path="res://Player/Sprites/test_player/Weapons/test_type/0.png" id="1_0d01c"]
-[ext_resource type="Texture2D" uid="uid://chgxyloywy7vd" path="res://Player/Sprites/test_player/Weapons/test_type/1.png" id="2_kg0dg"]
-[ext_resource type="Texture2D" uid="uid://bg48uec05kvmv" path="res://Player/Sprites/test_player/Weapons/test_type/2.png" id="3_lq07s"]
-[ext_resource type="Texture2D" uid="uid://b7whn3pa5e0d7" path="res://Player/Sprites/test_player/Weapons/test_type/3.png" id="4_w3sa2"]
+[ext_resource type="Texture2D" uid="uid://chjmg7koe857l" path="res://Item/Sprites/Weapons/sword/0.png" id="1_bhx84"]
+[ext_resource type="Texture2D" uid="uid://buywhocf2aj47" path="res://Item/Sprites/Weapons/sword/1.png" id="2_8xq2q"]
+[ext_resource type="Texture2D" uid="uid://b3ptey6ri0fp" path="res://Item/Sprites/Weapons/sword/2.png" id="3_yi4u3"]
+[ext_resource type="Texture2D" uid="uid://b75d3hlxq7rbg" path="res://Item/Sprites/Weapons/sword/3.png" id="4_1vach"]
 
 [resource]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_0d01c")
+"texture": ExtResource("1_bhx84")
 }, {
 "duration": 1.0,
-"texture": ExtResource("2_kg0dg")
+"texture": ExtResource("2_8xq2q")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_lq07s")
+"texture": ExtResource("3_yi4u3")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_w3sa2")
+"texture": ExtResource("4_1vach")
 }],
 "loop": false,
 "name": &"default",
-"speed": 4.0
+"speed": 8.0
 }]

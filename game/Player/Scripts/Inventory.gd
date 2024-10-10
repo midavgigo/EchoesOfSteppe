@@ -20,3 +20,10 @@ class Inventory:
 			if i >= slots_list.size():
 				break
 			slots.append(load("res://Item/Scripts/Slots/"+slots_list[i]+".gd").new(player))
+	
+	func process(delta):
+		#armor.process(delta)
+		pweapon.process(delta)
+		sweapon.process(delta)
+		for i in slots:
+			i.process(delta)
