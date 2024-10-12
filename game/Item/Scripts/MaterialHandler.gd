@@ -17,3 +17,4 @@ class MaterialHandler:
 			}
 		else:
 			data = reader.getDict()
+	

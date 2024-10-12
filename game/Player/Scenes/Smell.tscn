@@ -1,10 +1,11 @@
 [gd_scene load_steps=3 format=3 uid="uid://3bm4e6skm31g"]
 
 [ext_resource type="Script" path="res://Player/Scripts/Smell.gd" id="1_7rppo"]
-[ext_resource type="Texture2D" uid="uid://pseckno6clxv" path="res://Enemy/Sprites/smell/smell.png" id="2_pi61j"]
+[ext_resource type="Texture2D" uid="uid://d375bnpxg746h" path="res://Enemy/Sprites/smell/smell.png" id="2_pi61j"]
 
 [node name="Smell" type="Node2D" groups=["smell"]]
 script = ExtResource("1_7rppo")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
 texture = ExtResource("2_pi61j")

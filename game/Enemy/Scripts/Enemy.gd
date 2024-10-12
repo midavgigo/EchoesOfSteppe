@@ -41,9 +41,6 @@ func tactic():
 		position_target += target.position
 		enemy.set_target(position, position_target)
 
-func scared():
-	pass
-
 func _ready():
 	title = get_meta("title")
 	enemy = EnemyClass.new(title)
@@ -81,6 +78,8 @@ func _process(delta):
 		sprite.play("Death")
 		dead = true
 		return 
+	enemy.calc(delta)
+	call(enemy.attack.style, delta)
 	var temp = get_tree().get_nodes_in_group("smell")
 	smells = []
 	for i in range(16):
@@ -91,7 +90,6 @@ func _process(delta):
 		call(enemy.movement.pattern)
 	else:
 		enemy.stop()
-	enemy.calc(delta)
 	speed_analyze()
 	move_and_slide()
 
@@ -116,4 +114,9 @@ func _enemy_animation_end():
 	if dead:
 		queue_free()
 
-
+func add_effect(name, value):
+	for i in enemy.effects:
+		if i.NAME == name:
+			i.add_value(value)
+			return
+	enemy.effects.append(load("res://Tools/Scripts/Effects/"+name+".gd").new(self, value))

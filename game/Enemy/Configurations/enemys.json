@@ -1,20 +1,21 @@
 {
 	"ghoul":{
-		"health":1.0,
-		"resist":"flesh",
-		"width":50,
-		"height":100,
+		"health":	1.0,
+		"resist":	"flesh",
+		"width":	50,
+		"height":	100,
 		"movement":{
-			"speed": 100,
-			"accel": 562.5,
-			"pattern": "aggressive"
+			"speed": 	100,
+			"accel": 	562.5,
+			"pattern": 	"aggressive"
 		},
 		"attack":{
-			"distance":100,
-			"damage": 0.1,
-			"type": "beast",
-			"style": "melee",
-			"data": 0.5
-		}
+			"distance":	100,
+			"damage": 	0.1,
+			"type": 	"beast",
+			"style": 	"melee",
+			"data": 	0.5
+		},
+		"controller": "res://Enemy/Scripts/Bosses/Ghoul.gd"
 	}
 }

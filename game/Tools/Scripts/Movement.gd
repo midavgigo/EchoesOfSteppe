@@ -4,6 +4,7 @@ extends Movement
 class Movement:
 	var speed
 	var accel
-	func _init(speed, accel):
+	var pattern
+	func _init(speed, accel, pattern="player"):
 		self.speed = speed
 		self.accel = accel 

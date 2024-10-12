@@ -86,6 +86,7 @@ func player_process(delta):
 	if not dodging:
 		player.set_joy(x, y)
 	player.calc(delta*10)
+	pweapon_area.rotate(atan2(mdir().y, mdir().x)- pweapon_area.rotation)
 	if Input.is_action_pressed("primary_weapon"):
 		primary_weapon()
 	if Input.is_action_pressed("secondary_weapon"):
@@ -144,10 +145,13 @@ func _on_weapon_animation_animation_finished():
 
 func _on_area_2d_body_entered(body):
 	if body.is_in_group("hittable") and not hitting:
-			enemys.append(body)
+		enemys.append(body)
 
 func _on_area_2d_body_exited(body):
 	enemys.erase(body)
 
 func is_player_action():
 	return !is_dead() && Input.is_action_just_pressed("action")
+
+func add_effect(name, value):
+	pass

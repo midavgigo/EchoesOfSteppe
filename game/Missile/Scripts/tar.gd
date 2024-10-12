@@ -19,10 +19,10 @@ class TarMissile:
 		print("ОШИБКА СТОП ВРЕМЯ")
 		
 	func body_entered(body, is_player_owner, destroy_):
+		body.add_effect("tar", 0.1)
 		if destroy_:
 			missile.destroy()
 			return
-		print("ХДЫЩ")
 	
 	func body_exited(body, is_player):
 		print("ВЫХДЫЩ")
