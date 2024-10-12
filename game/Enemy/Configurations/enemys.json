@@ -1,5 +1,5 @@
 {
-	"test_enemy":{
+	"ghoul":{
 		"health":1.0,
 		"resist":"flesh",
 		"width":50,
@@ -7,7 +7,7 @@
 		"movement":{
 			"speed": 100,
 			"accel": 562.5,
-			"pattern": "tactic"
+			"pattern": "aggressive"
 		},
 		"attack":{
 			"distance":100,

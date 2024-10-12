@@ -1,6 +1,7 @@
 extends CharacterBody2D
 #imports
 const PlayerClass 		= preload("res://Player/Scripts/PlayerClass.gd")
+const Smell				= preload("res://Player/Scenes/Smell.tscn")
 #enums
 enum AnimationStatus{
 	STAND,
@@ -13,8 +14,8 @@ enum DebugType{
 	WEAPON,
 	EQUIPMENT
 }
-#consts
-const	DODGE_LIMIT			= 125
+#const
+const	SMELL_TIMING		= 0.5
 #vars
 var 	player
 var 	PLAYER_NAME 		= "demo_player"
@@ -25,6 +26,7 @@ var		dodging_time		= 0
 var 	enemys 				= []
 var 	debug_type 			= DebugType.PLAYER
 var 	animation_status 	= AnimationStatus.STAND
+var		smell_passed_time	= 0
 #nodes
 @onready var debug_label = $PlayerHud/DebugMessage
 @onready var animation = $Animation
@@ -102,7 +104,7 @@ func set_hit(damage, type):
 			player.health -= damage*player.inventory.armor.beast
 		"spirit":
 			player.health -= damage*player.inventory.armor.spirit
-	hpBar.set_hp(player.health)
+	hpBar.set_val(player.health)
 
 #sysfuncs
 func _ready():
@@ -110,7 +112,12 @@ func _ready():
 	animation.sprite_frames = load("res://Player/Animations/"+PLAYER_NAME+".tres")
 	animation.animation = "Stand"
 	animation.play("Stand")
+	
 func _process(delta):
+	if smell_passed_time >= SMELL_TIMING:
+		smell_passed_time = 0
+		self.add_child(Smell.instantiate())
+	smell_passed_time += delta
 	analyze_anim()
 	debug_label.text = ""
 	var debug_full = false

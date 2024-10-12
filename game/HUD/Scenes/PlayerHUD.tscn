@@ -1,12 +1,12 @@
 [gd_scene load_steps=2 format=3 uid="uid://c2p28k2aao7jl"]
 
-[ext_resource type="PackedScene" uid="uid://bdatv2xfkaihn" path="res://HUD/Scenes/pHPBar.tscn" id="1_tkcbm"]
+[ext_resource type="PackedScene" uid="uid://bdatv2xfkaihn" path="res://HUD/Scenes/pHpBar.tscn" id="1_eatsk"]
 
 [node name="PlayerHud" type="CanvasLayer"]
-
-[node name="pHpBar" parent="." instance=ExtResource("1_tkcbm")]
-position = Vector2(13, 10)
 
 [node name="DebugMessage" type="Label" parent="."]
 offset_right = 40.0
 offset_bottom = 23.0
+
+[node name="pHpBar" parent="." instance=ExtResource("1_eatsk")]
+position = Vector2(13, 10)

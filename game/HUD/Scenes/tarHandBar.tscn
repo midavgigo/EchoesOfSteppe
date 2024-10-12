@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://fui7jjrabx3x"]
+
+[ext_resource type="Texture2D" uid="uid://csoj3dosxv7y3" path="res://HUD/Sprites/tarBar/pTarBar.png" id="1_nwq1f"]
+
+[node name="TarHandBar" type="Node2D"]
+
+[node name="Main" type="Sprite2D" parent="."]
+texture = ExtResource("1_nwq1f")
+centered = false
+
+[node name="Flap" type="Sprite2D" parent="."]

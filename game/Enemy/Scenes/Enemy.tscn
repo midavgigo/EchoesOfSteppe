@@ -11,6 +11,7 @@ size = Vector2(100, 100)
 
 [node name="Enemy" type="CharacterBody2D" groups=["hittable"]]
 script = ExtResource("1_8hap8")
+metadata/title = ""
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_cer3f")

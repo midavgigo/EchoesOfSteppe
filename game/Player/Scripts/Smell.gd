@@ -18,7 +18,7 @@ func _process(delta):
 		freshness += 1
 		if freshness == 1:
 			binded_body = null
-		if freshness > MAX_FRESHNESS:
+		if freshness >= MAX_FRESHNESS:
 			queue_free()
 	if binded_body != null:
 		position = binded_body.position
