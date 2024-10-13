@@ -1,9 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://c2p28k2aao7jl"]
+[gd_scene load_steps=4 format=3 uid="uid://c2p28k2aao7jl"]
 
+[ext_resource type="Script" path="res://HUD/Scripts/PlayerHUD.gd" id="1_67x8p"]
 [ext_resource type="PackedScene" uid="uid://bdatv2xfkaihn" path="res://HUD/Scenes/pHpBar.tscn" id="1_eatsk"]
 [ext_resource type="PackedScene" uid="uid://b5hh1xj87hcjy" path="res://HUD/Scenes/bHpBar.tscn" id="2_o64rg"]
 
 [node name="PlayerHud" type="CanvasLayer"]
+script = ExtResource("1_67x8p")
 
 [node name="DebugMessage" type="Label" parent="."]
 offset_right = 40.0
@@ -13,5 +15,5 @@ offset_bottom = 23.0
 position = Vector2(13, 10)
 
 [node name="BHpBar" parent="." instance=ExtResource("2_o64rg")]
-visible = false
-position = Vector2(442, 11)
+position = Vector2(334, 23)
+scale = Vector2(2, 2)

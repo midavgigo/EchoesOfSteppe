@@ -1,9 +1,10 @@
 extends CharacterBody2D
 
+const EnemyClass = preload("res://Enemy/Scripts/EnemyClass.gd")
+
 @onready var sprite = $AnimatedSprite2D
 @onready var area = $Area2D
 @onready var weapon = $Area2D/AnimatedSprite2D
-const EnemyClass = preload("res://Enemy/Scripts/EnemyClass.gd")
 
 var enemy
 var title
@@ -43,7 +44,10 @@ func tactic():
 
 func _ready():
 	title = get_meta("title")
-	enemy = EnemyClass.new(title)
+	enemy = EnemyClass.new(self, title)
+	if enemy.is_boss:
+		player = get_tree().get_nodes_in_group("player")[0]
+		player.hud.bHpBar.visible = true
 	sprite.sprite_frames = load("res://Enemy/Animations/"+title+".tres")
 	sprite.animation = "Stand"
 	sprite.play("Stand")
@@ -61,7 +65,7 @@ func speed_analyze():
 	var x = norm_velocity.x
 	var y = norm_velocity.y
 	if not(x==0 and y==0):
-		area.rotate(round(atan2(y, x)/PI*2)*PI/2 - area.rotation)
+		area.rotate(atan2(y, x) - area.rotation)
 
 func melee(delta):
 	if can_hit:
@@ -71,7 +75,7 @@ func melee(delta):
 			player.set_hit(enemy.attack.damage, enemy.attack.type)
 			passed_time = 0
 	if passed_time < enemy.attack.data:
-		passed_time += delta
+		passed_time += delta*1000
 
 func _process(delta):
 	if enemy.health <= 0:
@@ -108,10 +112,13 @@ func get_resist():
 	return enemy.resist
 
 func set_hit(damage, material):
-	enemy.health -= damage
+	enemy.set_hit(damage, material)
+	if enemy.is_boss:
+		player.hud.bHpBar.set_val(enemy.health, enemy.max_health)
 
 func _enemy_animation_end():
 	if dead:
+		player.hud.bHpBar.visible = false
 		queue_free()
 
 func add_effect(name, value):
@@ -120,3 +127,7 @@ func add_effect(name, value):
 			i.add_value(value)
 			return
 	enemy.effects.append(load("res://Tools/Scripts/Effects/"+name+".gd").new(self, value))
+
+
+func _on_collide(body):
+	enemy.collide(body)

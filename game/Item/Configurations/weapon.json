@@ -3,13 +3,13 @@
 		"is_primary": "true",
 		"material": "rusty_iron",
 		"type": "sword",
-		"damage": 0.5,
+		"damage": 0.1,
 		"delay": 330
 	},
 	"tar_hand":{
 		"is_primary": "false",
 		"missile": "tar",
 		"type": "throwing",
-		"delay": 600
+		"delay": 0
 	}
 }

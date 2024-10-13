@@ -12,20 +12,25 @@ class EnemyClass:
 	var movement 		= Movement.new(0, 0)
 	var attack 			= Attack.new()
 	var health
+	var max_health
 	var width
 	var height
 	var name
 	var resist
 	var controller
+	var enemy
+	var is_boss = false
 	
 	var velocity 		= Vector2()
 	var acceleration 	= Vector2()
 	var effects			= []
 	
-	func _init(name):
+	func _init(enemy, name):
+		self.enemy			= enemy
 		self.name			= name
 		var reader			= ConfReader.new(ConfReader.Roots.ENEMY, "enemys", name)
 		health 				= reader.getField("health")
+		max_health			= health
 		width 				= reader.getField("width")
 		height 				= reader.getField("height")
 		attack.distance		= reader.getField("attack/distance")
@@ -39,7 +44,8 @@ class EnemyClass:
 		resist 				= reader.getField("resist")
 		controller 			= reader.getField("controller")
 		if controller != null:
-			controller 		= load(controller).new()
+			controller 		= load(controller).new(self)
+			is_boss 		= controller.IS_BOSS
 	
 	func set_target(pos, tar):
 		var vec = (tar - pos).normalized()
@@ -49,12 +55,14 @@ class EnemyClass:
 	func stop():
 		acceleration = Vector2()
 	
+	func total_stop():
+		velocity = Vector2()
+	
 	func calc(delta):
 		if acceleration.length() == 0:
 			acceleration = -velocity*13.5
 		velocity += acceleration*delta
 		velocity = velocity.limit_length(movement.speed)
-		
 		for i in effects:
 			i.process(delta)
 		
@@ -64,4 +72,12 @@ class EnemyClass:
 	func get_velocity():
 		return velocity
 	
-	
+	func set_hit(damage, material):
+		if controller != null:
+			controller.set_hit(damage, material)
+		else:
+			health -= damage
+			
+	func collide(body):
+		if controller != null:
+			controller.collide(body)

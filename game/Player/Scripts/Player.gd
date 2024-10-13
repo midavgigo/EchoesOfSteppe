@@ -28,17 +28,14 @@ var 	debug_type 			= DebugType.PLAYER
 var 	animation_status 	= AnimationStatus.STAND
 var		smell_passed_time	= 0
 #nodes
-@onready var debug_label = $PlayerHud/DebugMessage
-@onready var animation = $Animation
-@onready var hpBar = $PlayerHud/pHpBar
-@onready var pweapon_anim = $PrimaryWeapon/WeaponAnimation
-@onready var pweapon_area = $PrimaryWeapon
-
+@onready var animation		= $Animation
+@onready var pweapon_anim	= $PrimaryWeapon/WeaponAnimation
+@onready var pweapon_area	= $PrimaryWeapon
+@onready var hud			= $PlayerHud
 
 #funcs
 func is_dead():
 	return player.health <= 0.001
-	pweapon_anim.set_speed
 
 func analyze_anim():
 	var temp = animation_status
@@ -68,9 +65,6 @@ func mdir():
 	return (mdir/mdir.length()).limit_length(1)
 
 func primary_weapon():
-	pweapon_anim.visible = true
-	pweapon_anim.play("default")
-	hitting = true
 	player.inventory.pweapon.attack()
 
 func secondary_weapon():
@@ -105,7 +99,9 @@ func set_hit(damage, type):
 			player.health -= damage*player.inventory.armor.beast
 		"spirit":
 			player.health -= damage*player.inventory.armor.spirit
-	hpBar.set_val(player.health)
+		"forced":
+			player.health -= damage
+	hud.pHpBar.set_val(player.health)
 
 #sysfuncs
 func _ready():
@@ -120,7 +116,7 @@ func _process(delta):
 		self.add_child(Smell.instantiate())
 	smell_passed_time += delta
 	analyze_anim()
-	debug_label.text = ""
+	hud.debugMessage.text = ""
 	var debug_full = false
 	if Input.is_action_pressed("ui_accept"):
 		debug_full = true
@@ -131,11 +127,11 @@ func _process(delta):
 	if debug_full:
 		match debug_type:
 			DebugType.PLAYER:
-				debug_label.text = player.debug() + "\nposition: "+str(position)
+				hud.debugMessage.text = player.debug() + "\nposition: "+str(position)
 			DebugType.WEAPON:
-				debug_label.text = player.pweapon.debug()
+				hud.debugMessage.text = player.pweapon.debug()
 			DebugType.EQUIPMENT:
-				debug_label.text = player.armor.debug()
+				hud.debugMessage.text = player.armor.debug()
 	if !is_dead():
 		player_process(delta)
 
@@ -144,7 +140,7 @@ func _on_weapon_animation_animation_finished():
 	hitting = false
 
 func _on_area_2d_body_entered(body):
-	if body.is_in_group("hittable") and not hitting:
+	if body.is_in_group("hittable"):
 		enemys.append(body)
 
 func _on_area_2d_body_exited(body):

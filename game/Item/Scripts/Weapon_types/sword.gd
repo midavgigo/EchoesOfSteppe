@@ -32,6 +32,9 @@ class Sword:
 				passed_time	= 0
 	
 	func attack():
+		player.pweapon_anim.visible = true
+		player.pweapon_anim.play("default")
+		player.hitting = true
 		if can_hit:
 			for i in player.enemys:
 				i.set_hit(damage*material.data[i.get_resist()], material.data[i.get_resist()])	
